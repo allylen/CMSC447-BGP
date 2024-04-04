@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://cf40xv16dwmqf"]
+
+[ext_resource type="Script" path="res://scripts/create_account.gd" id="1_nfbv3"]
+[ext_resource type="Texture2D" uid="uid://c28xoudismkmj" path="res://assets/9qWgkgB.png" id="1_xcfwg"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_gwgmn"]
+blend_mode = 1
+
+[sub_resource type="Theme" id="Theme_kjaym"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_nfbv3")
+
+[node name="BG" type="TextureRect" parent="."]
+offset_right = 1155.0
+offset_bottom = 647.0
+texture = ExtResource("1_xcfwg")
+expand_mode = 1
+
+[node name="LineEdit" type="LineEdit" parent="."]
+material = SubResource("CanvasItemMaterial_gwgmn")
+offset_left = 487.0
+offset_top = 226.0
+offset_right = 622.0
+offset_bottom = 259.0
+theme = SubResource("Theme_kjaym")
+placeholder_text = "Enter Username"
+alignment = 1
+expand_to_text_length = true
+
+[node name="Back" type="Button" parent="."]
+offset_left = 16.0
+offset_top = 597.0
+offset_right = 82.0
+offset_bottom = 633.0
+text = "Back"
+
+[connection signal="text_submitted" from="LineEdit" to="." method="_on_line_edit_text_submitted"]
+[connection signal="pressed" from="Back" to="." method="_on_button_pressed"]
