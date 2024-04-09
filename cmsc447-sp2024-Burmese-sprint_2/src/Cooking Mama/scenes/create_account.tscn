@@ -12,8 +12,8 @@ blend_mode = 1
 script = ExtResource("1_nfbv3")
 
 [node name="BG" type="TextureRect" parent="."]
-offset_right = 1155.0
-offset_bottom = 647.0
+offset_right = 1153.0
+offset_bottom = 648.0
 texture = ExtResource("1_xcfwg")
 expand_mode = 1
 

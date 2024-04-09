@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://co82bownehp0g"]
+
+[ext_resource type="Texture2D" uid="uid://bbq2sgynwrxo8" path="res://icon.svg" id="1_8nltn"]
+[ext_resource type="Texture2D" uid="uid://spl8u3me3yh7" path="res://assets/cutting_board.png" id="1_aph82"]
+[ext_resource type="Script" path="res://Sprite2D.gd" id="1_uaa5u"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_41fev"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(886, 393.5)
+scale = Vector2(4474, 2401)
+texture = SubResource("CanvasTexture_41fev")
+
+[node name="CutBoard" type="Sprite2D" parent="."]
+position = Vector2(878, 329)
+texture = ExtResource("1_aph82")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(552, 331)
+texture = ExtResource("1_8nltn")
+script = ExtResource("1_uaa5u")

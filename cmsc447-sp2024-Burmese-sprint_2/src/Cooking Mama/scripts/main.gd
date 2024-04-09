@@ -8,13 +8,10 @@ func _ready():
 		$"Leaderboard".position.y -= 50
 		$"QUIT".position.y -= 20
 		$"LOGIN".set_text("PLAY")
-
-func _on_quit_pressed():
-	Sfx.play_sfx()
-	get_tree().quit()
+	
 
 func _on_leaderboard_pressed():
-	pass
+	get_tree().change_scene_to_file("res://scenes/leaderboard.tscn")
 
 
 func _on_create_account_pressed():

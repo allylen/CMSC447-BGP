@@ -1,13 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://2suu4o1sbod4"]
+[gd_scene load_steps=3 format=3 uid="uid://2suu4o1sbod4"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_soo3w"]
-[ext_resource type="PackedScene" uid="uid://dsar8cmdyvij1" path="res://scenes/select_level.tscn" id="3_y7omw"]
 [ext_resource type="Texture2D" uid="uid://c28xoudismkmj" path="res://assets/9qWgkgB.png" id="4_n717u"]
 
 [node name="main" type="Node2D"]
 script = ExtResource("1_soo3w")
-
-[node name="Select Level" parent="." instance=ExtResource("3_y7omw")]
 
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_left = -1.0
@@ -17,18 +14,12 @@ texture = ExtResource("4_n717u")
 expand_mode = 1
 
 [node name="LOGIN" type="Button" parent="."]
+top_level = true
 offset_left = 464.0
-offset_top = 216.0
-offset_right = 620.0
-offset_bottom = 283.0
-text = "LOGIN"
-
-[node name="QUIT" type="Button" parent="."]
-offset_left = 464.0
-offset_top = 436.0
+offset_top = 235.0
 offset_right = 622.0
-offset_bottom = 496.0
-text = "QUIT"
+offset_bottom = 295.0
+text = "LOGIN"
 
 [node name="Leaderboard" type="Button" parent="."]
 offset_left = 464.0
@@ -45,5 +36,5 @@ offset_bottom = 362.0
 text = "CREATE ACCOUNT"
 
 [connection signal="pressed" from="LOGIN" to="." method="_on_login_pressed"]
-[connection signal="pressed" from="QUIT" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Leaderboard" to="." method="_on_leaderboard_pressed"]
 [connection signal="pressed" from="Create Account" to="." method="_on_create_account_pressed"]

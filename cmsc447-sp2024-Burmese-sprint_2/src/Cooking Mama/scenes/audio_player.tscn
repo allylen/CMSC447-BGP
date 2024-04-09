@@ -3,5 +3,4 @@
 [ext_resource type="Script" path="res://scripts/audio_player.gd" id="1_iy7gw"]
 
 [node name="AudioPlayer" type="AudioStreamPlayer"]
-bus = &"Music"
 script = ExtResource("1_iy7gw")
