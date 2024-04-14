@@ -11,7 +11,6 @@ var knife_speed = 400
 var screen_center_x
 var screen_center_y
 
-
 func _input(event):
 	if event is InputEventMouseButton and event.is_pressed() and event.button_index == MOUSE_BUTTON_LEFT:
 		#need to fix this for all screen sizes
@@ -38,11 +37,6 @@ func _ready():
 	# calculate screen center
 	screen_center_x = get_viewport_rect().size.x / 2 
 	print("test", screen_center_x)
-	await get_tree().create_timer(15).timeout
-	queue_free()
-	get_tree().change_scene_to_file("res://scenes/cooking.tscn")
-
-
 	
 func _process(delta):
 	#Move the knife back and forth
@@ -68,7 +62,4 @@ func center_sprite():
 	screen_center_y = get_viewport_rect().size.y
 	self.position.x = screen_center_x - self.texture.get_width() / 2
 	self.position.y = screen_center_y - self.texture.get_height() / 2
-
-
-
 

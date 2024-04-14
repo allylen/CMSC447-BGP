@@ -1,0 +1,235 @@
+[gd_scene load_steps=23 format=3 uid="uid://cr3lvykthla71"]
+
+[ext_resource type="Script" path="res://scripts/BurgerDrag.gd" id="1_dm8wo"]
+[ext_resource type="Texture2D" uid="uid://bcsrtfuorgqmx" path="res://assets/burger-stage-0.png" id="1_fc20a"]
+[ext_resource type="Texture2D" uid="uid://cgxk0brhj0sla" path="res://assets/burger-stage-1.png" id="3_d1gee"]
+[ext_resource type="Texture2D" uid="uid://bo08opbtw8gvv" path="res://assets/burger-stage-2.png" id="4_mla6b"]
+[ext_resource type="Texture2D" uid="uid://buitcgn1sgxsd" path="res://assets/burger-stage-3.png" id="5_5vlip"]
+[ext_resource type="Texture2D" uid="uid://bu028ohd7am83" path="res://assets/burger-stage-4.png" id="6_ygahm"]
+[ext_resource type="Texture2D" uid="uid://dyxoh0td1n6s2" path="res://assets/burger-stage-5.png" id="7_u5spi"]
+[ext_resource type="Texture2D" uid="uid://dctvfd1gv4axh" path="res://assets/pixil-layer-0.png" id="8_d08cp"]
+[ext_resource type="Texture2D" uid="uid://hs02avu4qjej" path="res://assets/pixil-layer-1.png" id="9_fdky2"]
+[ext_resource type="Texture2D" uid="uid://dgfvf3h6o7wk2" path="res://assets/flip-1.png" id="11_qdbsl"]
+[ext_resource type="Texture2D" uid="uid://bhh5rn7ybonu0" path="res://assets/flip-2.png" id="12_16eya"]
+[ext_resource type="Texture2D" uid="uid://w2aq2vrwqqud" path="res://assets/flip-3.png" id="13_ekkvl"]
+[ext_resource type="Texture2D" uid="uid://cgrtxejo0xqwi" path="res://assets/flip-4.png" id="14_id6fn"]
+[ext_resource type="Texture2D" uid="uid://vb8at3q7is3i" path="res://assets/flip-5.png" id="15_b7wv0"]
+[ext_resource type="Texture2D" uid="uid://d1oksaysow4pj" path="res://assets/flip-6.png" id="16_sa1v2"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_slyh3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_d08cp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_fdky2")
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_fdky2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_d08cp")
+}],
+"loop": false,
+"name": &"Burn",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 10.0,
+"texture": ExtResource("1_fc20a")
+}, {
+"duration": 10.0,
+"texture": ExtResource("3_d1gee")
+}, {
+"duration": 10.0,
+"texture": ExtResource("4_mla6b")
+}, {
+"duration": 10.0,
+"texture": ExtResource("5_5vlip")
+}, {
+"duration": 10.0,
+"texture": ExtResource("6_ygahm")
+}, {
+"duration": 10.0,
+"texture": ExtResource("7_u5spi")
+}],
+"loop": false,
+"name": &"Cook",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_qdbsl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_16eya")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_ekkvl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_id6fn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_b7wv0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_sa1v2")
+}],
+"loop": true,
+"name": &"Flip",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_esfpq"]
+resource_name = "Burn"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Burger_Patty:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Burn"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Burger_Patty:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+
+[sub_resource type="Animation" id="Animation_uru4x"]
+resource_name = "Cook"
+length = 10.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Burger_Patty:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Cook"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Burger_Patty:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.8, 3.5, 5.3, 7, 8.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+
+[sub_resource type="Animation" id="Animation_vbjt4"]
+resource_name = "Flip"
+length = 1.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Burger_Patty:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Flip"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Burger_Patty:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 0]
+}
+
+[sub_resource type="Animation" id="Animation_jpy11"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Burger_Patty:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Cook"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Burger_Patty:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_af0v5"]
+_data = {
+"Burn": SubResource("Animation_esfpq"),
+"Cook": SubResource("Animation_uru4x"),
+"Flip": SubResource("Animation_vbjt4"),
+"RESET": SubResource("Animation_jpy11")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uc8k2"]
+radius = 122.0
+height = 346.0
+
+[node name="Burger" type="Node2D"]
+position = Vector2(-2, 1)
+script = ExtResource("1_dm8wo")
+
+[node name="Burger_Patty" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_slyh3")
+animation = &"Cook"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Burger_Patty"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_af0v5")
+}
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(0, -6)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-4, -14)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_uc8k2")
+
+[connection signal="animation_finished" from="Burger_Patty" to="." method="_on_burger_patty_animation_finished"]
+[connection signal="frame_changed" from="Burger_Patty" to="." method="_on_burger_patty_frame_changed"]
+[connection signal="animation_finished" from="Burger_Patty/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]

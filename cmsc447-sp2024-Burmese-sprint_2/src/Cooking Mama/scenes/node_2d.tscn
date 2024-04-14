@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://co82bownehp0g"]
+
+[ext_resource type="Texture2D" uid="uid://spl8u3me3yh7" path="res://assets/cutting_board.png" id="1_aph82"]
+[ext_resource type="Script" path="res://scripts/Sprite2D.gd" id="1_uaa5u"]
+[ext_resource type="Texture2D" uid="uid://bwe5rvhnmwq1m" path="res://assets/knife.png" id="2_i3vkt"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_41fev"]
+
+[node name="Node2D" type="Node2D"]
+metadata/_edit_vertical_guides_ = [0.0, 1920.0]
+metadata/_edit_horizontal_guides_ = [1080.0]
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(958, 539)
+scale = Vector2(1914, 1074)
+texture = SubResource("CanvasTexture_41fev")
+
+[node name="CutBoard" type="Sprite2D" parent="."]
+position = Vector2(917, 494)
+scale = Vector2(0.753906, 0.588867)
+texture = ExtResource("1_aph82")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(960, 601)
+texture = ExtResource("2_i3vkt")
+script = ExtResource("1_uaa5u")

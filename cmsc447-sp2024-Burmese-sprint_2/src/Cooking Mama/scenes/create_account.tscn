@@ -1,39 +1,74 @@
-[gd_scene load_steps=5 format=3 uid="uid://cf40xv16dwmqf"]
+[gd_scene load_steps=10 format=3 uid="uid://cf40xv16dwmqf"]
 
 [ext_resource type="Script" path="res://scripts/create_account.gd" id="1_nfbv3"]
-[ext_resource type="Texture2D" uid="uid://c28xoudismkmj" path="res://assets/9qWgkgB.png" id="1_xcfwg"]
+[ext_resource type="Texture2D" uid="uid://b416ggql7swnt" path="res://assets/menu_bg.png" id="2_ui450"]
+[ext_resource type="FontFile" uid="uid://em0nvwniqxvs" path="res://fonts/Daydream.ttf" id="3_6idj2"]
+[ext_resource type="Script" path="res://scenes/HTTPRequest.gd" id="4_158x0"]
 
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_gwgmn"]
-blend_mode = 1
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sevjc"]
+bg_color = Color(0, 0, 0, 1)
 
-[sub_resource type="Theme" id="Theme_kjaym"]
+[sub_resource type="Theme" id="Theme_ilx1i"]
+LineEdit/styles/normal = SubResource("StyleBoxFlat_sevjc")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wm38q"]
+bg_color = Color(0, 0, 0, 0.839216)
+border_width_left = 5
+border_width_bottom = 5
+border_color = Color(0.184314, 0, 0.509804, 1)
+border_blend = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mming"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 5
+border_width_bottom = 5
+border_color = Color(0.184314, 0, 0.509804, 1)
+border_blend = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jankq"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 5
+border_width_bottom = 5
+border_color = Color(0.184314, 0, 0.509804, 1)
+border_blend = true
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_nfbv3")
 
 [node name="BG" type="TextureRect" parent="."]
-offset_right = 1153.0
-offset_bottom = 648.0
-texture = ExtResource("1_xcfwg")
+offset_left = -25.0
+offset_right = 1947.0
+offset_bottom = 1085.0
+texture = ExtResource("2_ui450")
 expand_mode = 1
 
 [node name="LineEdit" type="LineEdit" parent="."]
-material = SubResource("CanvasItemMaterial_gwgmn")
-offset_left = 487.0
-offset_top = 226.0
-offset_right = 622.0
-offset_bottom = 259.0
-theme = SubResource("Theme_kjaym")
+offset_left = 515.0
+offset_top = 428.0
+offset_right = 1539.0
+offset_bottom = 532.0
+theme = SubResource("Theme_ilx1i")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_6idj2")
+theme_override_font_sizes/font_size = 70
+theme_override_styles/normal = SubResource("StyleBoxFlat_wm38q")
+theme_override_styles/focus = SubResource("StyleBoxFlat_mming")
+theme_override_styles/read_only = SubResource("StyleBoxFlat_jankq")
 placeholder_text = "Enter Username"
 alignment = 1
 expand_to_text_length = true
 
 [node name="Back" type="Button" parent="."]
-offset_left = 16.0
-offset_top = 597.0
-offset_right = 82.0
-offset_bottom = 633.0
+offset_left = 39.0
+offset_top = 982.0
+offset_right = 258.0
+offset_bottom = 1057.0
+theme_override_fonts/font = ExtResource("3_6idj2")
+theme_override_font_sizes/font_size = 50
 text = "Back"
+
+[node name="create_account_request_node" type="HTTPRequest" parent="."]
+script = ExtResource("4_158x0")
 
 [connection signal="text_submitted" from="LineEdit" to="." method="_on_line_edit_text_submitted"]
 [connection signal="pressed" from="Back" to="." method="_on_button_pressed"]

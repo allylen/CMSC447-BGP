@@ -1,40 +1,108 @@
-[gd_scene load_steps=3 format=3 uid="uid://2suu4o1sbod4"]
+[gd_scene load_steps=10 format=3 uid="uid://2suu4o1sbod4"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_soo3w"]
-[ext_resource type="Texture2D" uid="uid://c28xoudismkmj" path="res://assets/9qWgkgB.png" id="4_n717u"]
+[ext_resource type="Texture2D" uid="uid://b416ggql7swnt" path="res://assets/menu_bg.png" id="2_l2mr5"]
+[ext_resource type="FontFile" uid="uid://em0nvwniqxvs" path="res://fonts/Daydream.ttf" id="3_1rsyd"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2lr8h"]
+bg_color = Color(0.466667, 0.415686, 1, 0.839216)
+border_width_left = 5
+border_width_bottom = 5
+border_color = Color(0.882353, 0.670588, 1, 1)
+border_blend = true
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+expand_margin_left = 45.0
+expand_margin_right = 45.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_50yvc"]
+bg_color = Color(0.466667, 0.415686, 1, 0.839216)
+border_width_left = 5
+border_width_bottom = 5
+border_color = Color(0.882353, 0.670588, 1, 1)
+border_blend = true
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="Theme" id="Theme_1wi74"]
+Button/styles/normal = SubResource("StyleBoxFlat_50yvc")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1skqy"]
+bg_color = Color(0.466667, 0.415686, 1, 0.839216)
+border_width_left = 5
+border_width_bottom = 5
+border_color = Color(0.882353, 0.670588, 1, 1)
+border_blend = true
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+expand_margin_left = 10.0
+expand_margin_right = 10.0
+
+[sub_resource type="Theme" id="Theme_x30hk"]
+Button/styles/normal = SubResource("StyleBoxFlat_1skqy")
+
+[sub_resource type="Theme" id="Theme_4of4a"]
 
 [node name="main" type="Node2D"]
 script = ExtResource("1_soo3w")
+metadata/_edit_horizontal_guides_ = [0.0, 1080.0]
+metadata/_edit_vertical_guides_ = [1920.0]
 
 [node name="TextureRect" type="TextureRect" parent="."]
-offset_left = -1.0
-offset_right = 1151.0
-offset_bottom = 643.0
-texture = ExtResource("4_n717u")
+offset_left = -26.0
+offset_right = 1947.0
+offset_bottom = 1078.0
+texture = ExtResource("2_l2mr5")
 expand_mode = 1
 
-[node name="LOGIN" type="Button" parent="."]
-top_level = true
-offset_left = 464.0
-offset_top = 235.0
-offset_right = 622.0
-offset_bottom = 295.0
+[node name="Login" type="Button" parent="."]
+offset_left = 717.0
+offset_top = 595.0
+offset_right = 1174.0
+offset_bottom = 667.0
+theme_override_fonts/font = ExtResource("3_1rsyd")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_2lr8h")
 text = "LOGIN"
 
-[node name="Leaderboard" type="Button" parent="."]
-offset_left = 464.0
-offset_top = 369.0
-offset_right = 622.0
-offset_bottom = 429.0
-text = "LEADERBOARD"
-
 [node name="Create Account" type="Button" parent="."]
-offset_left = 464.0
-offset_top = 302.0
-offset_right = 622.0
-offset_bottom = 362.0
+offset_left = 672.0
+offset_top = 446.0
+offset_right = 1219.0
+offset_bottom = 522.0
+theme = SubResource("Theme_1wi74")
+theme_override_fonts/font = ExtResource("3_1rsyd")
+theme_override_font_sizes/font_size = 35
 text = "CREATE ACCOUNT"
 
-[connection signal="pressed" from="LOGIN" to="." method="_on_login_pressed"]
-[connection signal="pressed" from="Leaderboard" to="." method="_on_leaderboard_pressed"]
+[node name="Leaderboard" type="Button" parent="."]
+offset_left = 683.0
+offset_top = 748.0
+offset_right = 1210.0
+offset_bottom = 820.0
+theme = SubResource("Theme_x30hk")
+theme_override_fonts/font = ExtResource("3_1rsyd")
+theme_override_font_sizes/font_size = 43
+text = "LEADERBOARD"
+
+[node name="TextEdit" type="RichTextLabel" parent="."]
+offset_left = 553.0
+offset_top = 124.0
+offset_right = 1276.0
+offset_bottom = 213.0
+theme = SubResource("Theme_4of4a")
+theme_override_colors/default_color = Color(0.690196, 0.478431, 0.984314, 1)
+theme_override_fonts/normal_font = ExtResource("3_1rsyd")
+theme_override_font_sizes/normal_font_size = 65
+bbcode_enabled = true
+text = "Chef Mother"
+
+[connection signal="pressed" from="Login" to="." method="_on_login_pressed"]
 [connection signal="pressed" from="Create Account" to="." method="_on_create_account_pressed"]
+[connection signal="pressed" from="Leaderboard" to="." method="_on_leaderboard_pressed"]
