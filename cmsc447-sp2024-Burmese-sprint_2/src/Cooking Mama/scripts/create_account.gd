@@ -1,20 +1,18 @@
 extends Node2D
 
-@onready var create_account_request = $create_account_request_node
-
+# Declare the HTTPRequest variable at the top level.
+var create_account_request: HTTPRequest
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-
-
-
-
+	# Create a new HTTPRequest node and add it to the current node.
+	create_account_request = HTTPRequest.new()
+	add_child(create_account_request)
+	create_account_request.connect("request_completed", _on_create_account_request_node_request_completed)
 
 func _on_button_pressed():
 	Sfx.play_sfx()
 	get_tree().change_scene_to_file("res://scenes/main.tscn")
-
 
 func _on_line_edit_text_submitted(new_text):
 	Sfx.play_sfx()
@@ -22,25 +20,34 @@ func _on_line_edit_text_submitted(new_text):
 	make_create_account_request(new_text)
 	
 func make_create_account_request(username):
-	var url = "http://localhost:8000/create_account" 
-	var headers = ["Content-Type: application/json"]
-	var body = {"username": username}
+	var url = "http://localhost:8022/create_account"
+	var headers = PackedStringArray(["Content-Type: application/json"])  # Properly packed headers
+	var body_json = {"username": username}
+	var body = JSON.stringify(body_json)  # Convert JSON string to UTF-8 buffer
 	
-	var error = $create_account_request.request(url, headers, false, HTTPClient.METHOD_POST, JSON.stringify(body))
+	# Ensure that HTTPRequest is not processing another request
+	if create_account_request.is_processing():
+		push_error("Request is already in progress.")
+		return
+
+	# Fixing the order and type of arguments
+	var error = create_account_request.request(url, headers, HTTPClient.METHOD_POST, body)
 	if error != OK:
-		push_error("An error occurred in the HTTP request.")
+		push_error("An error occurred in the HTTP request. Error code: " + str(error))
+
 		
 func _on_create_account_request_node_request_completed(result, response_code, headers, body):
 	if response_code == 200:
 		var json = JSON.new()
-		var parse_result = json.parse(body.get_string_from_utf8())
-		if parse_result.error == OK:
-			var response = parse_result.result
-			if response.get("success", false):
-				get_tree().change_scene_to_file("res://scenes/select_level.tscn")
-			else:
-				push_error("Account creation failed.")
+		json.parse(body.get_string_from_utf8())
+		var response = json.get_data()
+		if (response):
+			Global.logged_in = true
+			get_tree().change_scene_to_file("res://scenes/select_level.tscn")
 		else:
-			push_error("Failed to parse JSON response.")
-	else:
-		push_error("HTTP request failed.")
+			push_error("Couldn't get json data :3")
+
+# Optionally, clean up by removing the HTTPRequest node when done or when the scene is exited.
+func _exit_tree():
+	remove_child(create_account_request)
+	create_account_request.queue_free()

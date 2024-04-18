@@ -1,7 +1,7 @@
 extends Node
 
+var logged_in = false
 
-var username = ""
 
 var level_one
 var level_two

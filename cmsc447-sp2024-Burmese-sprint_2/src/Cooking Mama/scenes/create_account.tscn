@@ -5,11 +5,11 @@
 [ext_resource type="FontFile" uid="uid://em0nvwniqxvs" path="res://fonts/Daydream.ttf" id="3_6idj2"]
 [ext_resource type="Script" path="res://scenes/HTTPRequest.gd" id="4_158x0"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sevjc"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ouh7j"]
 bg_color = Color(0, 0, 0, 1)
 
 [sub_resource type="Theme" id="Theme_ilx1i"]
-LineEdit/styles/normal = SubResource("StyleBoxFlat_sevjc")
+LineEdit/styles/normal = SubResource("StyleBoxFlat_ouh7j")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wm38q"]
 bg_color = Color(0, 0, 0, 0.839216)
