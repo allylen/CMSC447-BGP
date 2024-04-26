@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bc4i8ncwr6xl1"]
+
+[ext_resource type="Script" path="res://scripts/burger_zone.gd" id="1_abnp5"]
+
+[node name="burger_zone" type="Marker2D" groups=["Zones"]]
+script = ExtResource("1_abnp5")

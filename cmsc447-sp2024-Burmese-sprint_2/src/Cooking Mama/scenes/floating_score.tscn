@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://ddjuvklrn6kfc"]
+
+[ext_resource type="Script" path="res://scripts/floating_score.gd" id="1_fqiwu"]
+[ext_resource type="FontFile" uid="uid://cmy36q838uuuy" path="res://fonts/Retro Gaming.ttf" id="2_hhpyu"]
+
+[node name="FloatingScore" type="Marker2D"]
+script = ExtResource("1_fqiwu")
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -12.5
+offset_right = 50.0
+offset_bottom = 12.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0.647059, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_hhpyu")
+theme_override_font_sizes/font_size = 60
+text = "100"
+horizontal_alignment = 1
+vertical_alignment = 1
