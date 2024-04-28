@@ -1,13 +1,14 @@
 extends Node2D
 
 var login_request: HTTPRequest
-
+var entered_username
 func _ready():
 	login_request = HTTPRequest.new()
 	add_child(login_request)
 	login_request.connect("request_completed", _on_login_request_node_request_completed)
 
 func _on_line_edit_text_submitted(username):
+	entered_username = username
 	var url = "http://localhost:8023/login"
 	var headers = PackedStringArray(["Content-Type: application/json"])
 	var body_json = {"username": username}
@@ -26,6 +27,7 @@ func _on_login_request_node_request_completed(result, response_code, headers, bo
 		var response = json.get_data()
 		if response:
 			Global.logged_in = true
+			Global.user_name = entered_username
 			get_tree().change_scene_to_file("res://scenes/select_level.tscn")
 		else:
 			push_error("Login failed: " + (json.result.get("error", "Unknown error")))

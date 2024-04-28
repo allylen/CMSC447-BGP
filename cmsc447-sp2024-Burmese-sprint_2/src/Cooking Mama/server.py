@@ -107,6 +107,26 @@ def login():
     finally:
         conn.close()
 
+
+@app.route('/get_points', methods=['POST'])
+def get_points():
+    conn = sqlite3.connect('users.db')
+    c = conn.cursor()
+    data = request.get_json()
+    username = data['username']
+    
+    try:
+        c.execute('SELECT total_points FROM users WHERE username = ?', (username,))
+        result = c.fetchone()
+        if result:
+            points = result[0]
+            return {'success': True, 'points': points}, 200
+        else:
+            return {'success': False, 'error': 'User not found'}, 404
+    finally:
+        conn.close()
+
+
 if __name__ == '__main__':
     if not os.path.exists('users.db'):
         create_database()

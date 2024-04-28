@@ -1,3 +1,75 @@
-[gd_scene format=3 uid="uid://bkponpymf3h4t"]
+[gd_scene load_steps=7 format=3 uid="uid://bkponpymf3h4t"]
+
+[ext_resource type="Texture2D" uid="uid://b416ggql7swnt" path="res://assets/menu_bg.png" id="1_js1tu"]
+[ext_resource type="Texture2D" uid="uid://138pecjym63w" path="res://assets/OPTIONS.png" id="2_ps4eg"]
+[ext_resource type="Texture2D" uid="uid://bywgf45ey7qrs" path="res://assets/MASTER.png" id="3_th6ca"]
+[ext_resource type="Texture2D" uid="uid://c0xqhkqgmasb" path="res://assets/SFX.png" id="4_3fkse"]
+[ext_resource type="Texture2D" uid="uid://2dp371bsrv82" path="res://assets/MUSIC.png" id="5_x2lqd"]
+[ext_resource type="PackedScene" uid="uid://1xfl3mpg3j72" path="res://scenes/audio_slider.tscn" id="6_0he40"]
 
 [node name="Options" type="Node2D"]
+metadata/_edit_vertical_guides_ = [860.0, 1163.0]
+
+[node name="BG" type="TextureRect" parent="."]
+offset_left = -26.0
+offset_right = 1947.0
+offset_bottom = 1078.0
+texture = ExtResource("1_js1tu")
+expand_mode = 1
+
+[node name="OPTIONS" type="TextureRect" parent="."]
+offset_left = 641.0
+offset_top = 56.0
+offset_right = 1276.0
+offset_bottom = 257.0
+texture = ExtResource("2_ps4eg")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Master" type="TextureRect" parent="."]
+offset_left = 494.0
+offset_top = 401.0
+offset_right = 877.0
+offset_bottom = 521.0
+texture = ExtResource("3_th6ca")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Sfx" type="TextureRect" parent="."]
+offset_left = 568.0
+offset_top = 590.0
+offset_right = 773.0
+offset_bottom = 688.0
+texture = ExtResource("4_3fkse")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Music" type="TextureRect" parent="."]
+offset_left = 497.0
+offset_top = 490.0
+offset_right = 831.0
+offset_bottom = 617.0
+texture = ExtResource("5_x2lqd")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Master_Slider" parent="." instance=ExtResource("6_0he40")]
+offset_left = 859.0
+offset_top = 443.0
+offset_right = 1163.0
+offset_bottom = 485.0
+bus_name = "Master"
+
+[node name="Music_Slider" parent="." instance=ExtResource("6_0he40")]
+offset_left = 859.0
+offset_top = 541.0
+offset_right = 1163.0
+offset_bottom = 557.0
+bus_name = "music"
+
+[node name="SFX_Slider" parent="." instance=ExtResource("6_0he40")]
+offset_left = 860.0
+offset_top = 631.0
+offset_right = 1162.0
+offset_bottom = 647.0
+bus_name = "sfx"

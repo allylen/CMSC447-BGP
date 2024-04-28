@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cxhynqb2hs87w"]
+[gd_scene load_steps=10 format=3 uid="uid://cxhynqb2hs87w"]
 
 [ext_resource type="Script" path="res://scenes/shop.gd" id="1_2ka7q"]
 [ext_resource type="Texture2D" uid="uid://b416ggql7swnt" path="res://assets/menu_bg.png" id="2_uwi06"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://qh8jbhc887sp" path="res://assets/DISC_TWO.png" id="6_sn45n"]
 [ext_resource type="Texture2D" uid="uid://n1j23qnkju2g" path="res://assets/DISC_THREE.png" id="7_6wqc6"]
 [ext_resource type="Texture2D" uid="uid://cq2y1uln787c8" path="res://assets/BACK.png" id="8_m24cp"]
+[ext_resource type="Texture2D" uid="uid://dtwnux3kpic4o" path="res://assets/POINTS.png" id="9_sr5hl"]
 
 [node name="Shop" type="Node2D"]
 script = ExtResource("1_2ka7q")
@@ -82,7 +83,7 @@ texture = ExtResource("7_6wqc6")
 expand_mode = 1
 stretch_mode = 4
 
-[node name="TextureButton" type="TextureButton" parent="."]
+[node name="BACK" type="TextureButton" parent="."]
 offset_top = 969.0
 offset_right = 235.0
 offset_bottom = 1079.0
@@ -90,4 +91,19 @@ texture_normal = ExtResource("8_m24cp")
 ignore_texture_size = true
 stretch_mode = 4
 
-[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+
+[node name="POINTS" type="TextureRect" parent="."]
+offset_right = 330.0
+offset_bottom = 109.0
+texture = ExtResource("9_sr5hl")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="d_points" type="Label" parent="."]
+offset_left = 317.0
+offset_top = 27.0
+offset_right = 551.0
+offset_bottom = 77.0
+
+[connection signal="pressed" from="BACK" to="." method="_on_texture_button_pressed"]

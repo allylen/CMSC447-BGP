@@ -16,7 +16,7 @@ func _on_button_pressed():
 
 func _on_line_edit_text_submitted(new_text):
 	Sfx.play_sfx()
-	Global.username = new_text
+	Global.user_name = new_text
 	make_create_account_request(new_text)
 	
 func make_create_account_request(username):
