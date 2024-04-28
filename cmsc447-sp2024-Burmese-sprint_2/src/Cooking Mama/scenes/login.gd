@@ -8,7 +8,7 @@ func _ready():
 	login_request.connect("request_completed", _on_login_request_node_request_completed)
 
 func _on_line_edit_text_submitted(username):
-	var url = "http://localhost:8022/login"
+	var url = "http://localhost:8023/login"
 	var headers = PackedStringArray(["Content-Type: application/json"])
 	var body_json = {"username": username}
 	var body = JSON.stringify(body_json)

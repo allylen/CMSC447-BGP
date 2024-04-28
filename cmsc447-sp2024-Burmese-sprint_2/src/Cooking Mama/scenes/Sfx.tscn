@@ -3,4 +3,5 @@
 [ext_resource type="Script" path="res://scripts/Sfx.gd" id="1_7uipx"]
 
 [node name="Sfx" type="AudioStreamPlayer"]
+bus = &"sfx"
 script = ExtResource("1_7uipx")

@@ -83,13 +83,23 @@ text = "CREATE ACCOUNT"
 
 [node name="Leaderboard" type="Button" parent="."]
 offset_left = 683.0
-offset_top = 748.0
+offset_top = 736.0
 offset_right = 1210.0
-offset_bottom = 820.0
+offset_bottom = 808.0
 theme = SubResource("Theme_x30hk")
 theme_override_fonts/font = ExtResource("3_1rsyd")
 theme_override_font_sizes/font_size = 43
 text = "LEADERBOARD"
+
+[node name="Shop" type="Button" parent="."]
+offset_left = 683.0
+offset_top = 861.0
+offset_right = 1210.0
+offset_bottom = 933.0
+theme = SubResource("Theme_x30hk")
+theme_override_fonts/font = ExtResource("3_1rsyd")
+theme_override_font_sizes/font_size = 43
+text = "SHOP"
 
 [node name="TextEdit" type="RichTextLabel" parent="."]
 offset_left = 553.0
@@ -106,3 +116,4 @@ text = "Chef Mother"
 [connection signal="pressed" from="Login" to="." method="_on_login_pressed"]
 [connection signal="pressed" from="Create Account" to="." method="_on_create_account_pressed"]
 [connection signal="pressed" from="Leaderboard" to="." method="_on_leaderboard_pressed"]
+[connection signal="pressed" from="Shop" to="." method="_on_shop_pressed"]

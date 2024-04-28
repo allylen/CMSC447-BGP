@@ -9,25 +9,38 @@ CORS(app)
 DIRECTORY = os.path.dirname(os.path.abspath(__file__))
 DEFAULT_FILE = 'cookingmama.html'
 
-# Create the SQLite3 database
 def create_database():
     conn = sqlite3.connect('users.db')
     c = conn.cursor()
 
-    c.execute('''CREATE TABLE IF NOT EXISTS users
-                 (username TEXT PRIMARY KEY)''')
+    c.execute('''
+        CREATE TABLE IF NOT EXISTS users (
+            username TEXT PRIMARY KEY,
+            total_points INTEGER DEFAULT 0,
+            active_music TEXT DEFAULT 'track_one'
+        )
+    ''')
 
-    c.execute('''CREATE TABLE IF NOT EXISTS items
-                 (username TEXT,
-                  item TEXT,
-                  status INTEGER,
-                  FOREIGN KEY (username) REFERENCES users (username))''')
+    levels = ['level_one', 'level_two', 'level_three']
+    for level in levels:
+        c.execute(f'''
+            CREATE TABLE IF NOT EXISTS {level} (
+                username TEXT,
+                score INTEGER DEFAULT 0,
+                completed BOOLEAN DEFAULT FALSE,
+                FOREIGN KEY (username) REFERENCES users (username)
+            )
+        ''')
 
-    c.execute('''CREATE TABLE IF NOT EXISTS levels
-                 (username TEXT,
-                  level TEXT,
-                  status INTEGER,
-                  FOREIGN KEY (username) REFERENCES users (username))''')
+    tracks = ['track_one', 'track_two', 'track_three']
+    for track in tracks:
+        c.execute(f'''
+            CREATE TABLE IF NOT EXISTS {track} (
+                username TEXT,
+                is_enabled BOOLEAN DEFAULT FALSE,
+                FOREIGN KEY (username) REFERENCES users (username)
+            )
+        ''')
 
     conn.commit()
     conn.close()
@@ -98,4 +111,4 @@ if __name__ == '__main__':
     if not os.path.exists('users.db'):
         create_database()
     print_all_users()
-    app.run(debug=True, port=8022)
+    app.run(debug=True, port=8023)

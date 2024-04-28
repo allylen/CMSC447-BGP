@@ -20,7 +20,7 @@ func _on_line_edit_text_submitted(new_text):
 	make_create_account_request(new_text)
 	
 func make_create_account_request(username):
-	var url = "http://localhost:8022/create_account"
+	var url = "http://localhost:8023/create_account"
 	var headers = PackedStringArray(["Content-Type: application/json"])  # Properly packed headers
 	var body_json = {"username": username}
 	var body = JSON.stringify(body_json)  # Convert JSON string to UTF-8 buffer
