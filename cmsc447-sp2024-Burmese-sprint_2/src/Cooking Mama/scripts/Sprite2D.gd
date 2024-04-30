@@ -12,8 +12,13 @@ var score = 0
 var score_label
 var score_popup
 var score_popup_timer
-var screen_center_x
-var screen_center_y
+var screen_center_x = 960 #based on 1920x1080 screen
+var screen_center_y = 540 #based on 1920x1080 screen
+var screen_max_x = 1920
+var screen_min_x = 0
+var min_score = 20
+var max_click_distance = 206
+var vegetables_cut = 0
 
 func _ready():
 	set_sprite(0) #start with first sprite
@@ -22,7 +27,7 @@ func _ready():
 	knife = Sprite2D.new()
 	knife.texture = preload("res://assets/knife.png")
 	add_child(knife)
-	knife.position.y = get_viewport_rect().size.y / 2 - knife.texture.get_height()/2
+	knife.position.y = screen_center_y - knife.texture.get_height()/2
 	knife.visible = true
 	
 	#score label at top left
@@ -38,27 +43,28 @@ func _ready():
 	score_popup.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	score_popup.visible = false
 	add_child(score_popup)
-	score_popup.position = get_viewport_rect().size / 2
+	score_popup.position.x = screen_center_x
+	score_popup.position.y = screen_center_y
 	
 func _process(delta):
 	#Move the knife back and forth
 	knife.position.x += knife_speed * delta
-	if knife.position.x > get_viewport_rect().size.x:
+	if knife.position.x >= screen_max_x/2:
 		knife_speed = -knife_speed
-	elif knife.position.x < -knife.texture.get_width():
+	elif knife.position.x <= -screen_max_x/2:
 		knife_speed = -knife_speed
 		
 func _input(event):
 	if event is InputEventMouseButton and event.is_pressed() and event.button_index == MOUSE_BUTTON_LEFT:
 		# get click distance
-		var click_distance = abs(knife.position.x - self.position.x)
-		if click_distance <= 250:
+		var click_distance = abs(knife.position.x)
+		if click_distance <= max_click_distance:
 			if get_rect().has_point(to_local(event.position)):
 				if sprite_cut < len(sprites[sprite_index]["cuts"]):
 					self.texture = sprites[sprite_index]["cuts"][sprite_cut]
 					sprite_cut += 1
 					
-					var click_score = round(abs(250 - click_distance))
+					var click_score = round(100 - (click_distance / max_click_distance) * (100 - min_score))
 					score += click_score
 					score_label.text = "Score: " + str(score)
 					
@@ -66,17 +72,21 @@ func _input(event):
 					score_popup.visible = true
 					score_popup_timer = Timer.new()
 					score_popup_timer.connect("timeout", self, "hide_score_popup")
-					score_popup_timer.start(1.0)
+					score_popup_timer.start(3.0)
 				else:
-					next_sprite()
+					vegetables_cut += 1
+					if vegetables_cut >=2:
+						get_tree().change_scene_to_file("res://scenes/cooking.tscn")
+					else:
+						next_sprite()
 func hide_score_popup():
 	score_popup.visible = false
 	score_popup_timer.stop()
 func set_sprite(index):
 	sprite_index = index
 	self.texture = sprites[index]["sprite"]
-	self.position.x = get_viewport_rect().size.x / 2
-	self.position.y = get_viewport_rect().size.y / 2
+	self.position.x = screen_center_x
+	self.position.y = screen_center_y
 	sprite_cut = 0
 func next_sprite():
 	sprite_index = (sprite_index + 1) % sprites.size()
