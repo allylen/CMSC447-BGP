@@ -2,6 +2,7 @@ extends Node2D
 
 @onready var burg_anim = $Burger_Patty/AnimationPlayer
 @onready var burg_sprite = $Burger_Patty
+var level = Global.level
 var selected = false
 var rest_point
 var rest_nodes = []
@@ -22,6 +23,7 @@ signal burgHeld
 signal burgFinish(side1, side2)
 
 func _ready():
+	burg_anim.speed_scale = 1 + (0.5 * (level - 1)) # Speed increases by 0.5 for each level
 	rest_nodes = get_tree().get_nodes_in_group("zones")
 	rest_point = rest_nodes[0].global_position
 	rest_nodes[0].select()
@@ -109,8 +111,8 @@ func _on_burger_patty_frame_changed():
 	if (burg_anim.current_animation in cookAnims):
 		if (cur_side == 1):
 			cook_level_1 = burg_sprite.frame
-			print(cook_level_1)
+			# print(cook_level_1)
 		else:
 			cook_level_2 = burg_sprite.frame
-			print(cook_level_2)
+			# print(cook_level_2)
 

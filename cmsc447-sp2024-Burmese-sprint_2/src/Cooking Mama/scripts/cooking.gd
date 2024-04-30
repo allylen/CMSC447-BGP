@@ -11,15 +11,19 @@ extends Node
 @onready var numBurgsText = $"Burgers Cooked"
 @onready var timeRemaining = $TimeRemaining
 @onready var gameTimer = $GameTimer
+
+var level = Global.level
 var curSide = 1
 var curScore = 0
 var num_Burgers_Cooked = 0
-var gameTime = 60 # The amount of time given for this section of the game
+var gameTime = 20 * (4 - level)
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	gameTimer.wait_time = gameTime
 	gameTimer.start()
 	var newBurger = burger.instantiate()
+	cookTimer.speed_scale = 1 + (0.5 * (level - 1)) # Speed increases by 0.5 for each level
+	cookTimer2.speed_scale = 1 + (0.5 * (level - 1))
 	cookArrow.hide() # Make it so the arrow only shows once the burger starts cooking
 	cookTimerBar.hide() # Same with the bar for the timer
 	cookArrow2.hide()

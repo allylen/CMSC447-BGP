@@ -1,9 +1,9 @@
-[gd_scene load_steps=47 format=3 uid="uid://cr3lvykthla71"]
+[gd_scene load_steps=44 format=3 uid="uid://cr3lvykthla71"]
 
 [ext_resource type="Script" path="res://scripts/BurgerDrag.gd" id="1_dm8wo"]
-[ext_resource type="Texture2D" uid="uid://bl1k53t1vtlp2" path="res://assets/Placeholder Art/burn-0.png" id="2_tnsyw"]
-[ext_resource type="Texture2D" uid="uid://dgwpvfnmk1lp2" path="res://assets/Placeholder Art/burn-1.png" id="3_cgkb8"]
-[ext_resource type="Texture2D" uid="uid://mx6yeak7sxo8" path="res://assets/Placeholder Art/burn-2.png" id="4_hlq4r"]
+[ext_resource type="Texture2D" uid="uid://bl1k53t1vtlp2" path="res://assets/burn-0.png" id="2_tnsyw"]
+[ext_resource type="Texture2D" uid="uid://dgwpvfnmk1lp2" path="res://assets/burn-1.png" id="3_cgkb8"]
+[ext_resource type="Texture2D" uid="uid://mx6yeak7sxo8" path="res://assets/burn-2.png" id="4_hlq4r"]
 [ext_resource type="Texture2D" uid="uid://dnex5n5ojasag" path="res://assets/Finalized Art/Brian/set1/rawraw.png" id="5_w2gfk"]
 [ext_resource type="Texture2D" uid="uid://c3bac8u32bchv" path="res://assets/Finalized Art/Brian/set1/rawcook1.png" id="6_t1js7"]
 [ext_resource type="Texture2D" uid="uid://ctlmj4n7akert" path="res://assets/Finalized Art/Brian/set1/rawcook2.png" id="7_xybt1"]
@@ -29,12 +29,9 @@
 [ext_resource type="Texture2D" uid="uid://ch52hus7ymcq1" path="res://assets/Finalized Art/Brian/set5/cook4cook2.png" id="27_viac0"]
 [ext_resource type="Texture2D" uid="uid://c3o0udp84p4yc" path="res://assets/Finalized Art/Brian/set5/cook4cook3.png" id="28_fasax"]
 [ext_resource type="Texture2D" uid="uid://04rb20ypmja8" path="res://assets/Finalized Art/Brian/set5/cook4cook4.png" id="29_q01oc"]
-[ext_resource type="Texture2D" uid="uid://ch5a82oueed2k" path="res://assets/Placeholder Art/flip-1.png" id="30_3hfgb"]
-[ext_resource type="Texture2D" uid="uid://bioi4psu4krt0" path="res://assets/Placeholder Art/flip-2.png" id="31_ypomt"]
-[ext_resource type="Texture2D" uid="uid://b3bu7ox0qahv5" path="res://assets/Placeholder Art/flip-3.png" id="32_igl1c"]
-[ext_resource type="Texture2D" uid="uid://dl5fqsn1v2yb" path="res://assets/Placeholder Art/flip-4.png" id="33_p5wxc"]
-[ext_resource type="Texture2D" uid="uid://3d7xhc4dbr4l" path="res://assets/Placeholder Art/flip-5.png" id="34_s3j0e"]
-[ext_resource type="Texture2D" uid="uid://d1u4322ftc406" path="res://assets/Placeholder Art/flip-6.png" id="35_43d5o"]
+[ext_resource type="Texture2D" uid="uid://b2hgpvkmibbos" path="res://assets/Finalized Art/raw-1.png" id="30_afa7y"]
+[ext_resource type="Texture2D" uid="uid://dtm58b08tvmm7" path="res://assets/Finalized Art/raw-2.png" id="31_vj7pe"]
+[ext_resource type="Texture2D" uid="uid://bqrenuin0cpq5" path="res://assets/Finalized Art/raw-3.png" id="32_ajbux"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_slyh3"]
 animations = [{
@@ -160,24 +157,15 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("30_3hfgb")
+"texture": ExtResource("30_afa7y")
 }, {
 "duration": 1.0,
-"texture": ExtResource("31_ypomt")
+"texture": ExtResource("31_vj7pe")
 }, {
 "duration": 1.0,
-"texture": ExtResource("32_igl1c")
-}, {
-"duration": 1.0,
-"texture": ExtResource("33_p5wxc")
-}, {
-"duration": 1.0,
-"texture": ExtResource("34_s3j0e")
-}, {
-"duration": 1.0,
-"texture": ExtResource("35_43d5o")
+"texture": ExtResource("32_ajbux")
 }],
-"loop": true,
+"loop": false,
 "name": &"Flip",
 "speed": 5.0
 }]
@@ -351,7 +339,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_vbjt4"]
 resource_name = "Flip"
-length = 1.6
+length = 0.3
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -371,10 +359,22 @@ tracks/1/path = NodePath("Burger_Patty:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [0, 1, 2, 3, 4, 5, 0]
+"values": [0, 1, 2]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Burger_Patty:offset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(10, -20), Vector2(10, -40), Vector2(10, -20)]
 }
 
 [sub_resource type="Animation" id="Animation_jpy11"]
@@ -403,6 +403,18 @@ tracks/1/keys = {
 "update": 1,
 "values": [0]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Burger_Patty:offset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(10, -20)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_af0v5"]
 _data = {
@@ -427,7 +439,7 @@ script = ExtResource("1_dm8wo")
 [node name="Burger_Patty" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_slyh3")
 animation = &"Cook"
-offset = Vector2(10, 7)
+offset = Vector2(10, -20)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Burger_Patty"]
 root_node = NodePath("../..")
