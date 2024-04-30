@@ -28,7 +28,7 @@ func _on_login_request_node_request_completed(result, response_code, headers, bo
 		if response:
 			Global.logged_in = true
 			Global.user_name = entered_username
-			get_tree().change_scene_to_file("res://scenes/select_level.tscn")
+			get_tree().change_scene_to_file("res://scenes/main.tscn")
 		else:
 			push_error("Login failed: " + (json.result.get("error", "Unknown error")))
 	else:

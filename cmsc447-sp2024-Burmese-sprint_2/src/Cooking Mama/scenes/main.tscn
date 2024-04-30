@@ -1,8 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://2suu4o1sbod4"]
+[gd_scene load_steps=12 format=3 uid="uid://2suu4o1sbod4"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_soo3w"]
 [ext_resource type="Texture2D" uid="uid://b416ggql7swnt" path="res://assets/menu_bg.png" id="2_l2mr5"]
 [ext_resource type="FontFile" uid="uid://em0nvwniqxvs" path="res://fonts/Daydream.ttf" id="3_1rsyd"]
+[ext_resource type="PackedScene" uid="uid://1xfl3mpg3j72" path="res://scenes/audio_slider.tscn" id="4_hs0hw"]
+
+[sub_resource type="Theme" id="Theme_4of4a"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uwf58"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2lr8h"]
 bg_color = Color(0.466667, 0.415686, 1, 0.839216)
@@ -47,8 +52,6 @@ expand_margin_right = 10.0
 [sub_resource type="Theme" id="Theme_x30hk"]
 Button/styles/normal = SubResource("StyleBoxFlat_1skqy")
 
-[sub_resource type="Theme" id="Theme_4of4a"]
-
 [node name="main" type="Node2D"]
 script = ExtResource("1_soo3w")
 metadata/_edit_horizontal_guides_ = [0.0, 1080.0]
@@ -61,59 +64,122 @@ offset_bottom = 1078.0
 texture = ExtResource("2_l2mr5")
 expand_mode = 1
 
-[node name="Login" type="Button" parent="."]
-offset_left = 717.0
-offset_top = 595.0
-offset_right = 1174.0
-offset_bottom = 667.0
-theme_override_fonts/font = ExtResource("3_1rsyd")
-theme_override_font_sizes/font_size = 50
-theme_override_styles/normal = SubResource("StyleBoxFlat_2lr8h")
-text = "LOGIN"
-
-[node name="Create Account" type="Button" parent="."]
-offset_left = 672.0
-offset_top = 446.0
-offset_right = 1219.0
-offset_bottom = 522.0
-theme = SubResource("Theme_1wi74")
-theme_override_fonts/font = ExtResource("3_1rsyd")
-theme_override_font_sizes/font_size = 35
-text = "CREATE ACCOUNT"
-
-[node name="Leaderboard" type="Button" parent="."]
-offset_left = 683.0
-offset_top = 736.0
-offset_right = 1210.0
-offset_bottom = 808.0
-theme = SubResource("Theme_x30hk")
-theme_override_fonts/font = ExtResource("3_1rsyd")
-theme_override_font_sizes/font_size = 43
-text = "LEADERBOARD"
-
-[node name="Shop" type="Button" parent="."]
-offset_left = 683.0
-offset_top = 861.0
-offset_right = 1210.0
-offset_bottom = 933.0
-theme = SubResource("Theme_x30hk")
-theme_override_fonts/font = ExtResource("3_1rsyd")
-theme_override_font_sizes/font_size = 43
-text = "SHOP"
-
-[node name="TextEdit" type="RichTextLabel" parent="."]
+[node name="title_text" type="RichTextLabel" parent="."]
 offset_left = 553.0
 offset_top = 124.0
 offset_right = 1276.0
 offset_bottom = 213.0
 theme = SubResource("Theme_4of4a")
-theme_override_colors/default_color = Color(0.690196, 0.478431, 0.984314, 1)
+theme_override_colors/default_color = Color(0.750077, 0.596936, 0.989952, 1)
 theme_override_fonts/normal_font = ExtResource("3_1rsyd")
 theme_override_font_sizes/normal_font_size = 65
 bbcode_enabled = true
 text = "Chef Mother"
 
-[connection signal="pressed" from="Login" to="." method="_on_login_pressed"]
-[connection signal="pressed" from="Create Account" to="." method="_on_create_account_pressed"]
-[connection signal="pressed" from="Leaderboard" to="." method="_on_leaderboard_pressed"]
-[connection signal="pressed" from="Shop" to="." method="_on_shop_pressed"]
+[node name="sfx_text" type="RichTextLabel" parent="."]
+offset_left = 118.0
+offset_top = 881.0
+offset_right = 198.0
+offset_bottom = 919.0
+theme = SubResource("Theme_4of4a")
+theme_override_colors/default_color = Color(0.0196078, 0, 0.054902, 1)
+theme_override_fonts/normal_font = ExtResource("3_1rsyd")
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "sfx"
+
+[node name="master_text" type="RichTextLabel" parent="."]
+offset_left = 75.0
+offset_top = 923.0
+offset_right = 276.0
+offset_bottom = 961.0
+theme = SubResource("Theme_4of4a")
+theme_override_colors/default_color = Color(0.0196078, 0, 0.054902, 1)
+theme_override_fonts/normal_font = ExtResource("3_1rsyd")
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "master"
+
+[node name="music_text" type="RichTextLabel" parent="."]
+offset_left = 97.0
+offset_top = 956.0
+offset_right = 298.0
+offset_bottom = 994.0
+theme = SubResource("Theme_4of4a")
+theme_override_colors/default_color = Color(0.0196078, 0, 0.054902, 1)
+theme_override_fonts/normal_font = ExtResource("3_1rsyd")
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "music"
+
+[node name="Sliders" type="GridContainer" parent="."]
+offset_left = 236.0
+offset_top = 892.0
+offset_right = 276.0
+offset_bottom = 980.0
+theme_override_constants/v_separation = 20
+
+[node name="SFX_Slider" parent="Sliders" instance=ExtResource("4_hs0hw")]
+layout_mode = 2
+theme_override_styles/slider = SubResource("StyleBoxTexture_uwf58")
+bus_name = "sfx"
+
+[node name="Master_Slider" parent="Sliders" instance=ExtResource("4_hs0hw")]
+layout_mode = 2
+bus_name = "sfx"
+
+[node name="Music_Slider" parent="Sliders" instance=ExtResource("4_hs0hw")]
+layout_mode = 2
+bus_name = "sfx"
+
+[node name="btn_ctn" type="GridContainer" parent="."]
+offset_left = 692.0
+offset_top = 432.0
+offset_right = 1194.0
+offset_bottom = 694.0
+theme_override_constants/v_separation = 40
+
+[node name="Play" type="Button" parent="btn_ctn"]
+clip_contents = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_1rsyd")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_2lr8h")
+text = "Play"
+
+[node name="Login" type="Button" parent="btn_ctn"]
+clip_contents = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_1rsyd")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_2lr8h")
+text = "LOGIN"
+
+[node name="Create Account" type="Button" parent="btn_ctn"]
+layout_mode = 2
+theme = SubResource("Theme_1wi74")
+theme_override_fonts/font = ExtResource("3_1rsyd")
+theme_override_font_sizes/font_size = 35
+text = "CREATE ACCOUNT"
+
+[node name="Leaderboard" type="Button" parent="btn_ctn"]
+clip_contents = true
+layout_mode = 2
+theme = SubResource("Theme_x30hk")
+theme_override_fonts/font = ExtResource("3_1rsyd")
+theme_override_font_sizes/font_size = 43
+text = "LEADERBOARD"
+
+[node name="Shop" type="Button" parent="btn_ctn"]
+clip_contents = true
+layout_mode = 2
+theme = SubResource("Theme_x30hk")
+theme_override_fonts/font = ExtResource("3_1rsyd")
+theme_override_font_sizes/font_size = 43
+text = "SHOP"
+
+[connection signal="pressed" from="btn_ctn/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="btn_ctn/Login" to="." method="_on_login_pressed"]
+[connection signal="pressed" from="btn_ctn/Create Account" to="." method="_on_create_account_pressed"]
+[connection signal="pressed" from="btn_ctn/Leaderboard" to="." method="_on_leaderboard_pressed"]
+[connection signal="pressed" from="btn_ctn/Shop" to="." method="_on_shop_pressed"]

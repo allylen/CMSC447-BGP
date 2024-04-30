@@ -2,14 +2,35 @@ extends Node2D
 
 var points_request: HTTPRequest
 var points
-@onready
-var point_label = $d_points
+
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	points_request = HTTPRequest.new()
+	add_child(points_request)
 	request_user_points(Global.user_name)
+	points_request.connect("request_completed", _on_points_request_completed)
+	
+func show_popup(message: String):
+	var popup = Popup.new()
+	add_child(popup)
+	popup.rect_min_size = Vector2(400, 200) 
+	popup.popup_centered(Vector2(1920, 1080))
 
+	var label = Label.new()
+	label.text = message
+	label.rect_min_size = Vector2(380, 160)  
+	label.align = Label.PRESET_CENTER
+	label.valign = Label.PRESET_VCENTER_WIDE 
+	popup.add_child(label)
+
+	var ok_button = Button.new()
+	ok_button.text = "OK"
+	popup.add_child(ok_button)
+	ok_button.rect_min_size = Vector2(100, 40)
+	ok_button.set_position(Vector2((popup.rect_min_size.x - ok_button.rect_min_size.x) / 2, 150))  
+	ok_button.pressed.connect(_on_OK_button_pressed)
 
 func _on_texture_button_pressed():
 	get_tree().change_scene_to_file("res://.godot/exported/133200997/export-3ad5c15c4f3250da0cc7c1af1770d85f-main.scn")
@@ -26,12 +47,49 @@ func request_user_points(username):
 func _on_points_request_completed(result, response_code, headers, body):
 	if response_code == 200:
 		var json = JSON.new()
-		json.parse(body.get_string_from_utf8())
-		if json.error == OK and json.result["success"]:
-			points = int(json.result["points"])
-			point_label.text = points
-			print("User has points: ", points)
+		var error = json.parse(body.get_string_from_utf8())  # Store the parsing error code
+		if error == OK:
+			# Now that parsing was successful, we can safely access json.result
+			if json.data["success"]:  # Check if 'success' key exists and is true, indexing by [1] because godot listifies responses for some reason... [0] is points and [1] is result
+				points = int(json.data["points"])
+				Global.set_total_points(points)
+				print("User has points: ", points)
+			else:
+				# Handle case where 'success' is false or not present
+				var errorMessage = json.result.get("error", "Unknown error")
+				push_error("Failed to fetch points: " + errorMessage)
 		else:
-			push_error("Failed to fetch points: " + (json.result.get("error", "Unknown error")))
+			# Handle JSON parsing errors
+			push_error("Failed to parse JSON response")
 	else:
 		push_error("HTTP request failed with code: " + str(response_code))
+
+
+
+
+func _on_disc_one_pressed():
+	if Global.sound_track_one == "track_one":
+		show_popup("Track Already Enabled")
+	else:
+		Global.sound_track == "track_one"
+		
+		
+
+
+
+func _on_disc_two_pressed():
+	if Global.sound_track == "track_two":
+		show_popup("Track Already Enabled")
+	else:
+		pass
+
+
+func _on_disc_three_pressed():
+	if Global.sound_track == "track_three":
+		show_popup("Track Already Enabled")
+	else:
+		pass
+		
+func _on_OK_button_pressed(popup):
+	popup.queue_free()
+

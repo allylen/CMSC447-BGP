@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cxhynqb2hs87w"]
+[gd_scene load_steps=11 format=3 uid="uid://cxhynqb2hs87w"]
 
 [ext_resource type="Script" path="res://scenes/shop.gd" id="1_2ka7q"]
 [ext_resource type="Texture2D" uid="uid://b416ggql7swnt" path="res://assets/menu_bg.png" id="2_uwi06"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://n1j23qnkju2g" path="res://assets/DISC_THREE.png" id="7_6wqc6"]
 [ext_resource type="Texture2D" uid="uid://cq2y1uln787c8" path="res://assets/BACK.png" id="8_m24cp"]
 [ext_resource type="Texture2D" uid="uid://dtwnux3kpic4o" path="res://assets/POINTS.png" id="9_sr5hl"]
+[ext_resource type="Script" path="res://scenes/shop_pts_label.gd" id="10_fxcp3"]
 
 [node name="Shop" type="Node2D"]
 script = ExtResource("1_2ka7q")
@@ -94,16 +95,24 @@ stretch_mode = 4
 [node name="HTTPRequest" type="HTTPRequest" parent="."]
 
 [node name="POINTS" type="TextureRect" parent="."]
-offset_right = 330.0
-offset_bottom = 109.0
+offset_right = 520.0
+offset_bottom = 161.0
 texture = ExtResource("9_sr5hl")
 expand_mode = 1
 stretch_mode = 4
 
-[node name="d_points" type="Label" parent="."]
-offset_left = 317.0
-offset_top = 27.0
-offset_right = 551.0
-offset_bottom = 77.0
+[node name="shop_pts_label" type="Label" parent="."]
+offset_left = 460.0
+offset_top = 40.0
+offset_right = 694.0
+offset_bottom = 107.0
+theme_override_colors/font_color = Color(0.184314, 0.470588, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.0313726, 0.0313726, 0.0313726, 1)
+theme_override_font_sizes/font_size = 48
+script = ExtResource("10_fxcp3")
 
+[connection signal="pressed" from="disc_one" to="." method="_on_disc_one_pressed"]
+[connection signal="pressed" from="disc_two" to="." method="_on_disc_two_pressed"]
+[connection signal="pressed" from="disc_three" to="." method="_on_disc_three_pressed"]
 [connection signal="pressed" from="BACK" to="." method="_on_texture_button_pressed"]
