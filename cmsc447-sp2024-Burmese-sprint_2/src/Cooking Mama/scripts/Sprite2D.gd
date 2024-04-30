@@ -92,7 +92,7 @@ func next_sprite():
 	sprite_index = (sprite_index + 1) % sprites.size()
 	set_sprite(sprite_index)
 func get_level_speed(level):
-	return knife_speed * (level + 1 if level > 0 else 1)
+	return knife_speed * (level if level > 0 else 1)
 func _physics_process(delta):
 	knife_speed = get_level_speed(Global.get("level"))
 
