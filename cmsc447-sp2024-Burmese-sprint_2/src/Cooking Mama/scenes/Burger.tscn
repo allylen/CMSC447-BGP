@@ -1,38 +1,58 @@
-[gd_scene load_steps=23 format=3 uid="uid://cr3lvykthla71"]
+[gd_scene load_steps=47 format=3 uid="uid://cr3lvykthla71"]
 
 [ext_resource type="Script" path="res://scripts/BurgerDrag.gd" id="1_dm8wo"]
-[ext_resource type="Texture2D" uid="uid://bcsrtfuorgqmx" path="res://assets/burger-stage-0.png" id="1_fc20a"]
-[ext_resource type="Texture2D" uid="uid://cgxk0brhj0sla" path="res://assets/burger-stage-1.png" id="3_d1gee"]
-[ext_resource type="Texture2D" uid="uid://bo08opbtw8gvv" path="res://assets/burger-stage-2.png" id="4_mla6b"]
-[ext_resource type="Texture2D" uid="uid://buitcgn1sgxsd" path="res://assets/burger-stage-3.png" id="5_5vlip"]
-[ext_resource type="Texture2D" uid="uid://bu028ohd7am83" path="res://assets/burger-stage-4.png" id="6_ygahm"]
-[ext_resource type="Texture2D" uid="uid://dyxoh0td1n6s2" path="res://assets/burger-stage-5.png" id="7_u5spi"]
-[ext_resource type="Texture2D" uid="uid://dctvfd1gv4axh" path="res://assets/pixil-layer-0.png" id="8_d08cp"]
-[ext_resource type="Texture2D" uid="uid://hs02avu4qjej" path="res://assets/pixil-layer-1.png" id="9_fdky2"]
-[ext_resource type="Texture2D" uid="uid://dgfvf3h6o7wk2" path="res://assets/flip-1.png" id="11_qdbsl"]
-[ext_resource type="Texture2D" uid="uid://bhh5rn7ybonu0" path="res://assets/flip-2.png" id="12_16eya"]
-[ext_resource type="Texture2D" uid="uid://w2aq2vrwqqud" path="res://assets/flip-3.png" id="13_ekkvl"]
-[ext_resource type="Texture2D" uid="uid://cgrtxejo0xqwi" path="res://assets/flip-4.png" id="14_id6fn"]
-[ext_resource type="Texture2D" uid="uid://vb8at3q7is3i" path="res://assets/flip-5.png" id="15_b7wv0"]
-[ext_resource type="Texture2D" uid="uid://d1oksaysow4pj" path="res://assets/flip-6.png" id="16_sa1v2"]
+[ext_resource type="Texture2D" uid="uid://bl1k53t1vtlp2" path="res://assets/Placeholder Art/burn-0.png" id="2_tnsyw"]
+[ext_resource type="Texture2D" uid="uid://dgwpvfnmk1lp2" path="res://assets/Placeholder Art/burn-1.png" id="3_cgkb8"]
+[ext_resource type="Texture2D" uid="uid://mx6yeak7sxo8" path="res://assets/Placeholder Art/burn-2.png" id="4_hlq4r"]
+[ext_resource type="Texture2D" uid="uid://dnex5n5ojasag" path="res://assets/Finalized Art/Brian/set1/rawraw.png" id="5_w2gfk"]
+[ext_resource type="Texture2D" uid="uid://c3bac8u32bchv" path="res://assets/Finalized Art/Brian/set1/rawcook1.png" id="6_t1js7"]
+[ext_resource type="Texture2D" uid="uid://ctlmj4n7akert" path="res://assets/Finalized Art/Brian/set1/rawcook2.png" id="7_xybt1"]
+[ext_resource type="Texture2D" uid="uid://dn7ut2g2id3j3" path="res://assets/Finalized Art/Brian/set1/rawcook3.png" id="8_6a2d0"]
+[ext_resource type="Texture2D" uid="uid://8wgej7dl5wse" path="res://assets/Finalized Art/Brian/set1/rawcook4.png" id="9_g7rrb"]
+[ext_resource type="Texture2D" uid="uid://dd0exsgmfjbvr" path="res://assets/Finalized Art/Brian/set2/cook1raw.png" id="10_2xc0m"]
+[ext_resource type="Texture2D" uid="uid://bomqsxusg238e" path="res://assets/Finalized Art/Brian/set2/cook1cook1.png" id="11_g5aus"]
+[ext_resource type="Texture2D" uid="uid://b8ofmrv8ixhqi" path="res://assets/Finalized Art/Brian/set2/cook1cook2.png" id="12_omipp"]
+[ext_resource type="Texture2D" uid="uid://48bd11cagr5f" path="res://assets/Finalized Art/Brian/set2/cook1cook3.png" id="13_p2j3p"]
+[ext_resource type="Texture2D" uid="uid://dewhomhrlklh" path="res://assets/Finalized Art/Brian/set2/cook1cook4.png" id="14_7c45r"]
+[ext_resource type="Texture2D" uid="uid://7850o5ght4hq" path="res://assets/Finalized Art/Brian/set3/cook2raw.png" id="15_a6kk1"]
+[ext_resource type="Texture2D" uid="uid://ww7rv2yj7ddj" path="res://assets/Finalized Art/Brian/set3/cook2cook1.png" id="16_v0cwf"]
+[ext_resource type="Texture2D" uid="uid://bilknnqhk0y6h" path="res://assets/Finalized Art/Brian/set3/cook2cook2.png" id="17_jxd5s"]
+[ext_resource type="Texture2D" uid="uid://coej6koihsax7" path="res://assets/Finalized Art/Brian/set3/cook2cook3.png" id="18_ygm2j"]
+[ext_resource type="Texture2D" uid="uid://bjmppj6mlvweb" path="res://assets/Finalized Art/Brian/set3/cook2cook4.png" id="19_8o48v"]
+[ext_resource type="Texture2D" uid="uid://cdnbxtg0dspyb" path="res://assets/Finalized Art/Brian/set4/cook3raw.png" id="20_jvx66"]
+[ext_resource type="Texture2D" uid="uid://ddmqssfxdf0qi" path="res://assets/Finalized Art/Brian/set4/cook3cook1.png" id="21_8ycjj"]
+[ext_resource type="Texture2D" uid="uid://dj2kcrrtuock0" path="res://assets/Finalized Art/Brian/set4/cook3cook2.png" id="22_prbht"]
+[ext_resource type="Texture2D" uid="uid://hto4wn6cxfgf" path="res://assets/Finalized Art/Brian/set4/cook3cook3.png" id="23_v4tyv"]
+[ext_resource type="Texture2D" uid="uid://bdf7xy3su57cg" path="res://assets/Finalized Art/Brian/set4/cook3cook4.png" id="24_olyj4"]
+[ext_resource type="Texture2D" uid="uid://chxxy23abnnse" path="res://assets/Finalized Art/Brian/set5/cook4raw.png" id="25_o57n4"]
+[ext_resource type="Texture2D" uid="uid://cbryq5vx4dx0t" path="res://assets/Finalized Art/Brian/set5/cook4cook1.png" id="26_o8afh"]
+[ext_resource type="Texture2D" uid="uid://ch52hus7ymcq1" path="res://assets/Finalized Art/Brian/set5/cook4cook2.png" id="27_viac0"]
+[ext_resource type="Texture2D" uid="uid://c3o0udp84p4yc" path="res://assets/Finalized Art/Brian/set5/cook4cook3.png" id="28_fasax"]
+[ext_resource type="Texture2D" uid="uid://04rb20ypmja8" path="res://assets/Finalized Art/Brian/set5/cook4cook4.png" id="29_q01oc"]
+[ext_resource type="Texture2D" uid="uid://ch5a82oueed2k" path="res://assets/Placeholder Art/flip-1.png" id="30_3hfgb"]
+[ext_resource type="Texture2D" uid="uid://bioi4psu4krt0" path="res://assets/Placeholder Art/flip-2.png" id="31_ypomt"]
+[ext_resource type="Texture2D" uid="uid://b3bu7ox0qahv5" path="res://assets/Placeholder Art/flip-3.png" id="32_igl1c"]
+[ext_resource type="Texture2D" uid="uid://dl5fqsn1v2yb" path="res://assets/Placeholder Art/flip-4.png" id="33_p5wxc"]
+[ext_resource type="Texture2D" uid="uid://3d7xhc4dbr4l" path="res://assets/Placeholder Art/flip-5.png" id="34_s3j0e"]
+[ext_resource type="Texture2D" uid="uid://d1u4322ftc406" path="res://assets/Placeholder Art/flip-6.png" id="35_43d5o"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_slyh3"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("8_d08cp")
+"texture": ExtResource("2_tnsyw")
 }, {
 "duration": 1.0,
-"texture": ExtResource("9_fdky2")
+"texture": ExtResource("3_cgkb8")
 }, {
 "duration": 1.0,
-"texture": null
+"texture": ExtResource("4_hlq4r")
 }, {
 "duration": 1.0,
-"texture": ExtResource("9_fdky2")
+"texture": ExtResource("3_cgkb8")
 }, {
 "duration": 1.0,
-"texture": ExtResource("8_d08cp")
+"texture": ExtResource("2_tnsyw")
 }],
 "loop": false,
 "name": &"Burn",
@@ -40,45 +60,122 @@ animations = [{
 }, {
 "frames": [{
 "duration": 10.0,
-"texture": ExtResource("1_fc20a")
+"texture": ExtResource("5_w2gfk")
 }, {
 "duration": 10.0,
-"texture": ExtResource("3_d1gee")
+"texture": ExtResource("6_t1js7")
 }, {
 "duration": 10.0,
-"texture": ExtResource("4_mla6b")
+"texture": ExtResource("7_xybt1")
 }, {
 "duration": 10.0,
-"texture": ExtResource("5_5vlip")
+"texture": ExtResource("8_6a2d0")
 }, {
 "duration": 10.0,
-"texture": ExtResource("6_ygahm")
-}, {
-"duration": 10.0,
-"texture": ExtResource("7_u5spi")
+"texture": ExtResource("9_g7rrb")
 }],
 "loop": false,
 "name": &"Cook",
 "speed": 5.0
 }, {
 "frames": [{
+"duration": 10.0,
+"texture": ExtResource("10_2xc0m")
+}, {
+"duration": 10.0,
+"texture": ExtResource("11_g5aus")
+}, {
+"duration": 10.0,
+"texture": ExtResource("12_omipp")
+}, {
+"duration": 10.0,
+"texture": ExtResource("13_p2j3p")
+}, {
+"duration": 10.0,
+"texture": ExtResource("14_7c45r")
+}],
+"loop": false,
+"name": &"Cook1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 10.0,
+"texture": ExtResource("15_a6kk1")
+}, {
+"duration": 10.0,
+"texture": ExtResource("16_v0cwf")
+}, {
+"duration": 10.0,
+"texture": ExtResource("17_jxd5s")
+}, {
+"duration": 10.0,
+"texture": ExtResource("18_ygm2j")
+}, {
+"duration": 10.0,
+"texture": ExtResource("19_8o48v")
+}],
+"loop": false,
+"name": &"Cook2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 10.0,
+"texture": ExtResource("20_jvx66")
+}, {
+"duration": 10.0,
+"texture": ExtResource("21_8ycjj")
+}, {
+"duration": 10.0,
+"texture": ExtResource("22_prbht")
+}, {
+"duration": 10.0,
+"texture": ExtResource("23_v4tyv")
+}, {
+"duration": 10.0,
+"texture": ExtResource("24_olyj4")
+}],
+"loop": false,
+"name": &"Cook3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 10.0,
+"texture": ExtResource("25_o57n4")
+}, {
+"duration": 10.0,
+"texture": ExtResource("26_o8afh")
+}, {
+"duration": 10.0,
+"texture": ExtResource("27_viac0")
+}, {
+"duration": 10.0,
+"texture": ExtResource("28_fasax")
+}, {
+"duration": 10.0,
+"texture": ExtResource("29_q01oc")
+}],
+"loop": false,
+"name": &"Cook4",
+"speed": 5.0
+}, {
+"frames": [{
 "duration": 1.0,
-"texture": ExtResource("11_qdbsl")
+"texture": ExtResource("30_3hfgb")
 }, {
 "duration": 1.0,
-"texture": ExtResource("12_16eya")
+"texture": ExtResource("31_ypomt")
 }, {
 "duration": 1.0,
-"texture": ExtResource("13_ekkvl")
+"texture": ExtResource("32_igl1c")
 }, {
 "duration": 1.0,
-"texture": ExtResource("14_id6fn")
+"texture": ExtResource("33_p5wxc")
 }, {
 "duration": 1.0,
-"texture": ExtResource("15_b7wv0")
+"texture": ExtResource("34_s3j0e")
 }, {
 "duration": 1.0,
-"texture": ExtResource("16_sa1v2")
+"texture": ExtResource("35_43d5o")
 }],
 "loop": true,
 "name": &"Flip",
@@ -112,9 +209,9 @@ tracks/1/keys = {
 "values": [0, 1, 2, 3, 4]
 }
 
-[sub_resource type="Animation" id="Animation_uru4x"]
+[sub_resource type="Animation" id="Animation_7yidj"]
 resource_name = "Cook"
-length = 10.5
+length = 10.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -134,10 +231,122 @@ tracks/1/path = NodePath("Burger_Patty:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 1.8, 3.5, 5.3, 7, 8.8),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 2, 4, 6, 8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 1, 2, 3, 4, 5]
+"values": [0, 1, 2, 3, 4]
+}
+
+[sub_resource type="Animation" id="Animation_0hyei"]
+resource_name = "Cook1"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Burger_Patty:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Cook1"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Burger_Patty:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2, 4, 6, 8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+
+[sub_resource type="Animation" id="Animation_r65rm"]
+resource_name = "Cook2"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Burger_Patty:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Cook2"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Burger_Patty:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2, 4, 6, 8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+
+[sub_resource type="Animation" id="Animation_pdcrp"]
+resource_name = "Cook3"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Burger_Patty:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Cook3"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Burger_Patty:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2, 4, 6, 8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+
+[sub_resource type="Animation" id="Animation_fy600"]
+resource_name = "Cook4"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Burger_Patty:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Cook4"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Burger_Patty:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2, 4, 6, 8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
 }
 
 [sub_resource type="Animation" id="Animation_vbjt4"]
@@ -198,14 +407,18 @@ tracks/1/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_af0v5"]
 _data = {
 "Burn": SubResource("Animation_esfpq"),
-"Cook": SubResource("Animation_uru4x"),
+"Cook": SubResource("Animation_7yidj"),
+"Cook1": SubResource("Animation_0hyei"),
+"Cook2": SubResource("Animation_r65rm"),
+"Cook3": SubResource("Animation_pdcrp"),
+"Cook4": SubResource("Animation_fy600"),
 "Flip": SubResource("Animation_vbjt4"),
 "RESET": SubResource("Animation_jpy11")
 }
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uc8k2"]
-radius = 122.0
-height = 346.0
+radius = 84.0
+height = 194.0
 
 [node name="Burger" type="Node2D"]
 position = Vector2(-2, 1)
@@ -214,22 +427,24 @@ script = ExtResource("1_dm8wo")
 [node name="Burger_Patty" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_slyh3")
 animation = &"Cook"
+offset = Vector2(10, 7)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Burger_Patty"]
 root_node = NodePath("../..")
 libraries = {
 "": SubResource("AnimationLibrary_af0v5")
 }
+autoplay = "Cook"
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(0, -6)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-4, -14)
+visible = false
+position = Vector2(2, 5)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_uc8k2")
 
-[connection signal="animation_finished" from="Burger_Patty" to="." method="_on_burger_patty_animation_finished"]
 [connection signal="frame_changed" from="Burger_Patty" to="." method="_on_burger_patty_frame_changed"]
 [connection signal="animation_finished" from="Burger_Patty/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
