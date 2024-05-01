@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://euk5oa5bjqxg"]
+
+[ext_resource type="Script" path="res://scenes/assemblingLevel1/pointsDisplayScript.gd" id="1_qjsvi"]
+[ext_resource type="Texture2D" uid="uid://kctf4pk7iptt" path="res://scenes/assemblingLevel1/stack backg.png" id="2_cr7hd"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="StackBackg" type="Sprite2D" parent="."]
+position = Vector2(961, 545)
+scale = Vector2(1.2487, 1.06055)
+texture = ExtResource("2_cr7hd")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 592.0
+offset_top = 256.0
+offset_right = 1336.0
+offset_bottom = 776.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+horizontal_alignment = 1
+script = ExtResource("1_qjsvi")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="Label" method="_on_timer_timeout"]
