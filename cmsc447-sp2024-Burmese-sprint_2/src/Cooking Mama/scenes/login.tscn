@@ -1,7 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://7to4yv11wyxf"]
+[gd_scene load_steps=8 format=3 uid="uid://7to4yv11wyxf"]
 
 [ext_resource type="Script" path="res://scenes/login.gd" id="1_0xiyk"]
-[ext_resource type="Texture2D" uid="uid://b416ggql7swnt" path="res://assets/menu_bg.png" id="2_do7hw"]
 [ext_resource type="FontFile" uid="uid://em0nvwniqxvs" path="res://fonts/Daydream.ttf" id="3_gw7k3"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sevjc"]
@@ -38,7 +37,6 @@ script = ExtResource("1_0xiyk")
 offset_left = -25.0
 offset_right = 1947.0
 offset_bottom = 1085.0
-texture = ExtResource("2_do7hw")
 expand_mode = 1
 
 [node name="LineEdit" type="LineEdit" parent="."]

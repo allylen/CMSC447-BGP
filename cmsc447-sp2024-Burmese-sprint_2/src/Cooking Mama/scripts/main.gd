@@ -10,11 +10,22 @@ func _ready():
 
 	if create_account_button and login_button and play_button and shop_button:
 		if Global.logged_in:
+			$"TextureRect".texture = load("res://assets/post_login_bg.png")
 			create_account_button.visible = false
 			login_button.visible = false
 			play_button.visible = true
 			shop_button.visible = true
+			#print(Global.equipped_items)
+			#Global.set_total_points(Global.total_points+10)
+			#Global.fetch_ownership_details()
+			#Global.purchase_plate("blue_plate")
+			#Global.purchase_knife("pink_knife")
+			#Global.equip_item("blue_knife")
+			#print(Global.equipped_items)
+			#Global.equip_item("pink_knife")
+			#print(Global.equipped_items)
 		else:
+			$"TextureRect".texture = load("res://assets/pre_login_bg.png")
 			create_account_button.visible = true
 			login_button.visible = true
 			play_button.visible = false
@@ -48,3 +59,8 @@ func _on_login_pressed():
 func _on_shop_pressed():
 	if Global.logged_in != false:
 		get_tree().change_scene_to_file("res://scenes/shop.tscn")
+
+
+
+func _on_play_pressed():
+	get_tree().change_scene_to_file("res://scenes/select_level.tscn")

@@ -106,5 +106,7 @@ func _on_burger_finish(side1, side2): # When the burger is moved to the end zone
 
 
 func _on_game_timer_timeout(): # When the timer reaches 0
+	Global.stage_two_total_points = curScore # set the score for stage two of the level
 	get_tree().change_scene_to_file("res://scenes/select_level.tscn") # Replace this with the assembly scene when added
 	# Note for Yonas - at this point, can send the score and number of burgers to database (And feel free to adjust the multiplier on the score for balancing purposes)
+	

@@ -6,7 +6,7 @@ const track_one = preload("res://music/MAIN.ogg")
 
 
 
-func _play_track_one(music: AudioStream, volume = 0.0):
+func _play_track_one(music: AudioStream, volume = -100.0):
 	if stream == music:
 		return
 	

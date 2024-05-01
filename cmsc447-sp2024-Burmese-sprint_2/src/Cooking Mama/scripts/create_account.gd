@@ -43,7 +43,7 @@ func _on_create_account_request_node_request_completed(result, response_code, he
 		var response = json.get_data()
 		if (response):
 			Global.logged_in = true
-			get_tree().change_scene_to_file("res://scenes/select_level.tscn")
+			get_tree().change_scene_to_file("res://scenes/main.tscn")
 		else:
 			push_error("Couldn't get json data :3")
 

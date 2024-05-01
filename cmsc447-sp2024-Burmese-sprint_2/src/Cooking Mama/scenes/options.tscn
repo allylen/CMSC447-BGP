@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://bkponpymf3h4t"]
+[gd_scene load_steps=8 format=3 uid="uid://bkponpymf3h4t"]
 
+[ext_resource type="Script" path="res://scripts/options.gd" id="1_86mrk"]
 [ext_resource type="Texture2D" uid="uid://b416ggql7swnt" path="res://assets/menu_bg.png" id="1_js1tu"]
 [ext_resource type="Texture2D" uid="uid://138pecjym63w" path="res://assets/OPTIONS.png" id="2_ps4eg"]
 [ext_resource type="Texture2D" uid="uid://bywgf45ey7qrs" path="res://assets/MASTER.png" id="3_th6ca"]
@@ -8,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://1xfl3mpg3j72" path="res://scenes/audio_slider.tscn" id="6_0he40"]
 
 [node name="Options" type="Node2D"]
+script = ExtResource("1_86mrk")
 metadata/_edit_vertical_guides_ = [860.0, 1163.0]
 
 [node name="BG" type="TextureRect" parent="."]

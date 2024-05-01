@@ -70,6 +70,7 @@ func _input(event):
 				else:
 					vegetables_cut += 1
 					if vegetables_cut >=2:
+						Global.stage_one_total_points = score # set the score for stage one of the level
 						get_tree().change_scene_to_file("res://scenes/cooking.tscn")
 					else:
 						next_sprite()
