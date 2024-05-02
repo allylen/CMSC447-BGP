@@ -1,9 +1,10 @@
-[gd_scene load_steps=44 format=3 uid="uid://cr3lvykthla71"]
+[gd_scene load_steps=45 format=3 uid="uid://cr3lvykthla71"]
 
 [ext_resource type="Script" path="res://scripts/BurgerDrag.gd" id="1_dm8wo"]
-[ext_resource type="Texture2D" uid="uid://bl1k53t1vtlp2" path="res://assets/burn-0.png" id="2_tnsyw"]
-[ext_resource type="Texture2D" uid="uid://dgwpvfnmk1lp2" path="res://assets/burn-1.png" id="3_cgkb8"]
-[ext_resource type="Texture2D" uid="uid://mx6yeak7sxo8" path="res://assets/burn-2.png" id="4_hlq4r"]
+[ext_resource type="Texture2D" uid="uid://bt07jiwnbj7ol" path="res://assets/flame 1.png" id="2_1brp7"]
+[ext_resource type="Texture2D" uid="uid://bsxycqq7rr655" path="res://assets/flame 2.png" id="3_4haex"]
+[ext_resource type="Texture2D" uid="uid://wee0da1jly3g" path="res://assets/flame 3.png" id="4_gvvwl"]
+[ext_resource type="Texture2D" uid="uid://b7mctxe5wac2w" path="res://assets/flame 4.png" id="5_pxjrt"]
 [ext_resource type="Texture2D" uid="uid://dnex5n5ojasag" path="res://assets/Finalized Art/Brian/set1/rawraw.png" id="5_w2gfk"]
 [ext_resource type="Texture2D" uid="uid://c3bac8u32bchv" path="res://assets/Finalized Art/Brian/set1/rawcook1.png" id="6_t1js7"]
 [ext_resource type="Texture2D" uid="uid://ctlmj4n7akert" path="res://assets/Finalized Art/Brian/set1/rawcook2.png" id="7_xybt1"]
@@ -37,19 +38,16 @@
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_tnsyw")
+"texture": ExtResource("2_1brp7")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_cgkb8")
+"texture": ExtResource("3_4haex")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_hlq4r")
+"texture": ExtResource("4_gvvwl")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_cgkb8")
-}, {
-"duration": 1.0,
-"texture": ExtResource("2_tnsyw")
+"texture": ExtResource("5_pxjrt")
 }],
 "loop": false,
 "name": &"Burn",
@@ -172,6 +170,7 @@ animations = [{
 
 [sub_resource type="Animation" id="Animation_esfpq"]
 resource_name = "Burn"
+length = 0.7
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -191,10 +190,22 @@ tracks/1/path = NodePath("Burger_Patty:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.3, 0.5, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 1, 2, 3, 4]
+"values": [0, 1, 2, 3, 2, 1, 0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Burger_Patty:offset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector2(10, 30), Vector2(10, 62), Vector2(10, 30)]
 }
 
 [sub_resource type="Animation" id="Animation_7yidj"]
