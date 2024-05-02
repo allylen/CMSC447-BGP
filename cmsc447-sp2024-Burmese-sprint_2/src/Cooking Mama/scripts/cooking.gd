@@ -13,12 +13,19 @@ extends Node
 @onready var gameTimer = $GameTimer
 
 var level = Global.level
+var plate = Global.equipped_items["plate"]
 var curSide = 1
 var curScore = 0
 var num_Burgers_Cooked = 0
 var gameTime = 20 * (4 - level)
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	if plate == "blue_plate":
+		$StartPlate.texture = load("res://assets/Finalized Art/Brian/plate sprite blue.png")
+	elif plate == "purple_plate":
+		$StartPlate.texture = load("res://assets/Finalized Art/Brian/plate pink.png")
+	elif plate == "green_plate":
+		$StartPlate.texture = load("res://assets/Shop/plate sprite green.png")
 	gameTimer.wait_time = gameTime
 	gameTimer.start()
 	var newBurger = burger.instantiate()
