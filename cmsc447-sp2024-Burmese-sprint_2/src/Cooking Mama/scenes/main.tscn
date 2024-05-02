@@ -1,40 +1,17 @@
-[gd_scene load_steps=12 format=3 uid="uid://2suu4o1sbod4"]
+[gd_scene load_steps=13 format=3 uid="uid://2suu4o1sbod4"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_soo3w"]
-[ext_resource type="Texture2D" uid="uid://b416ggql7swnt" path="res://assets/menu_bg.png" id="2_l2mr5"]
+[ext_resource type="Texture2D" uid="uid://dymwh3y1uf42a" path="res://assets/Shop/menu backg.png" id="2_emmmp"]
 [ext_resource type="FontFile" uid="uid://em0nvwniqxvs" path="res://fonts/Daydream.ttf" id="3_1rsyd"]
-[ext_resource type="PackedScene" uid="uid://1xfl3mpg3j72" path="res://scenes/audio_slider.tscn" id="4_hs0hw"]
+[ext_resource type="Texture2D" uid="uid://b76xwv404o4l0" path="res://assets/CENTERED BUTTONS/play but.png" id="4_b3yo6"]
+[ext_resource type="Texture2D" uid="uid://6gy1d2t4uirf" path="res://assets/CENTERED BUTTONS/login but.png" id="5_wfmhr"]
+[ext_resource type="Texture2D" uid="uid://d3y02i6ebff26" path="res://assets/CENTERED BUTTONS/create but.png" id="6_3175e"]
+[ext_resource type="Texture2D" uid="uid://c40lgx8wl0wlb" path="res://assets/CENTERED BUTTONS/lead but.png" id="7_6jt4o"]
+[ext_resource type="Texture2D" uid="uid://dwp17smca8q2f" path="res://assets/CENTERED BUTTONS/shop but.png" id="8_cpab2"]
 
 [sub_resource type="Theme" id="Theme_4of4a"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uwf58"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2lr8h"]
-bg_color = Color(0.466667, 0.415686, 1, 0.839216)
-border_width_left = 5
-border_width_bottom = 5
-border_color = Color(0.882353, 0.670588, 1, 1)
-border_blend = true
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
-expand_margin_left = 45.0
-expand_margin_right = 45.0
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_50yvc"]
-bg_color = Color(0.466667, 0.415686, 1, 0.839216)
-border_width_left = 5
-border_width_bottom = 5
-border_color = Color(0.882353, 0.670588, 1, 1)
-border_blend = true
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
-
-[sub_resource type="Theme" id="Theme_1wi74"]
-Button/styles/normal = SubResource("StyleBoxFlat_50yvc")
+[sub_resource type="Theme" id="Theme_sy2tk"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1skqy"]
 bg_color = Color(0.466667, 0.415686, 1, 0.839216)
@@ -61,7 +38,7 @@ metadata/_edit_vertical_guides_ = [1920.0]
 offset_left = -26.0
 offset_right = 1947.0
 offset_bottom = 1078.0
-texture = ExtResource("2_l2mr5")
+texture = ExtResource("2_emmmp")
 expand_mode = 1
 
 [node name="title_text" type="RichTextLabel" parent="."]
@@ -76,110 +53,85 @@ theme_override_font_sizes/normal_font_size = 65
 bbcode_enabled = true
 text = "Chef Mother"
 
-[node name="sfx_text" type="RichTextLabel" parent="."]
-offset_left = 118.0
-offset_top = 881.0
-offset_right = 198.0
-offset_bottom = 919.0
-theme = SubResource("Theme_4of4a")
-theme_override_colors/default_color = Color(0.0196078, 0, 0.054902, 1)
-theme_override_fonts/normal_font = ExtResource("3_1rsyd")
-theme_override_font_sizes/normal_font_size = 24
-bbcode_enabled = true
-text = "sfx"
-
-[node name="master_text" type="RichTextLabel" parent="."]
-offset_left = 75.0
-offset_top = 923.0
-offset_right = 276.0
-offset_bottom = 961.0
-theme = SubResource("Theme_4of4a")
-theme_override_colors/default_color = Color(0.0196078, 0, 0.054902, 1)
-theme_override_fonts/normal_font = ExtResource("3_1rsyd")
-theme_override_font_sizes/normal_font_size = 24
-bbcode_enabled = true
-text = "master"
-
-[node name="music_text" type="RichTextLabel" parent="."]
-offset_left = 97.0
-offset_top = 956.0
-offset_right = 298.0
-offset_bottom = 994.0
-theme = SubResource("Theme_4of4a")
-theme_override_colors/default_color = Color(0.0196078, 0, 0.054902, 1)
-theme_override_fonts/normal_font = ExtResource("3_1rsyd")
-theme_override_font_sizes/normal_font_size = 24
-bbcode_enabled = true
-text = "music"
-
-[node name="Sliders" type="GridContainer" parent="."]
-offset_left = 236.0
-offset_top = 892.0
-offset_right = 276.0
-offset_bottom = 980.0
-theme_override_constants/v_separation = 20
-
-[node name="SFX_Slider" parent="Sliders" instance=ExtResource("4_hs0hw")]
-layout_mode = 2
-theme_override_styles/slider = SubResource("StyleBoxTexture_uwf58")
-bus_name = "sfx"
-
-[node name="Master_Slider" parent="Sliders" instance=ExtResource("4_hs0hw")]
-layout_mode = 2
-bus_name = "sfx"
-
-[node name="Music_Slider" parent="Sliders" instance=ExtResource("4_hs0hw")]
-layout_mode = 2
-bus_name = "sfx"
-
-[node name="btn_ctn" type="GridContainer" parent="."]
-offset_left = 692.0
-offset_top = 432.0
-offset_right = 1194.0
-offset_bottom = 694.0
-theme_override_constants/v_separation = 40
-
-[node name="Play" type="Button" parent="btn_ctn"]
+[node name="Play" type="TextureButton" parent="."]
 clip_contents = true
-layout_mode = 2
-theme_override_fonts/font = ExtResource("3_1rsyd")
-theme_override_font_sizes/font_size = 50
-theme_override_styles/normal = SubResource("StyleBoxFlat_2lr8h")
-text = "Play"
+offset_left = 1521.0
+offset_top = 220.0
+offset_right = 1851.0
+offset_bottom = 295.0
+scale = Vector2(0.873815, 0.933349)
+texture_normal = ExtResource("4_b3yo6")
+ignore_texture_size = true
+stretch_mode = 3
 
-[node name="Login" type="Button" parent="btn_ctn"]
+[node name="Login" type="TextureButton" parent="."]
 clip_contents = true
-layout_mode = 2
-theme_override_fonts/font = ExtResource("3_1rsyd")
-theme_override_font_sizes/font_size = 50
-theme_override_styles/normal = SubResource("StyleBoxFlat_2lr8h")
-text = "LOGIN"
+layout_direction = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 1490.0
+offset_top = 308.0
+offset_right = 1899.0
+offset_bottom = 406.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.538408, 0.964608)
+theme = SubResource("Theme_sy2tk")
+texture_normal = ExtResource("5_wfmhr")
+ignore_texture_size = true
+stretch_mode = 3
 
-[node name="Create Account" type="Button" parent="btn_ctn"]
-layout_mode = 2
-theme = SubResource("Theme_1wi74")
-theme_override_fonts/font = ExtResource("3_1rsyd")
-theme_override_font_sizes/font_size = 35
-text = "CREATE ACCOUNT"
-
-[node name="Leaderboard" type="Button" parent="btn_ctn"]
+[node name="Create Account" type="TextureButton" parent="."]
 clip_contents = true
-layout_mode = 2
+offset_left = 1449.0
+offset_top = 413.0
+offset_right = 1859.0
+offset_bottom = 521.0
+scale = Vector2(0.635781, 0.931058)
+texture_normal = ExtResource("6_3175e")
+ignore_texture_size = true
+stretch_mode = 3
+
+[node name="Leaderboard" type="TextureButton" parent="."]
+clip_contents = true
+anchors_preset = -1
+offset_left = 712.0
+offset_top = 371.0
+offset_right = 941.0
+offset_bottom = 561.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.972634, 0.95448)
 theme = SubResource("Theme_x30hk")
-theme_override_fonts/font = ExtResource("3_1rsyd")
-theme_override_font_sizes/font_size = 43
-text = "LEADERBOARD"
+texture_normal = ExtResource("7_6jt4o")
+ignore_texture_size = true
+stretch_mode = 3
 
-[node name="Shop" type="Button" parent="btn_ctn"]
+[node name="Shop" type="TextureButton" parent="."]
 clip_contents = true
-layout_mode = 2
+offset_left = 1195.0
+offset_top = 247.0
+offset_right = 1521.0
+offset_bottom = 429.0
+scale = Vector2(0.783578, 0.805987)
 theme = SubResource("Theme_x30hk")
-theme_override_fonts/font = ExtResource("3_1rsyd")
-theme_override_font_sizes/font_size = 43
-text = "SHOP"
+texture_normal = ExtResource("8_cpab2")
+ignore_texture_size = true
+stretch_mode = 3
 
-[connection signal="pressed" from="btn_ctn/Play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="btn_ctn/Login" to="." method="_on_login_pressed"]
-[connection signal="pressed" from="btn_ctn/Create Account" to="." method="_on_create_account_pressed"]
-[connection signal="pressed" from="btn_ctn/Leaderboard" to="." method="_on_leaderboard_pressed"]
-[connection signal="pressed" from="btn_ctn/Shop" to="." method="_on_shop_pressed"]
+[node name="Music Shop" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = 16.0
+offset_top = 389.0
+offset_right = 176.0
+offset_bottom = 526.0
+
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Login" to="." method="_on_login_pressed"]
+[connection signal="pressed" from="Create Account" to="." method="_on_create_account_pressed"]
+[connection signal="pressed" from="Leaderboard" to="." method="_on_leaderboard_pressed"]
+[connection signal="pressed" from="Shop" to="." method="_on_shop_pressed"]
+[connection signal="pressed" from="Music Shop" to="." method="_on_music_shop_pressed"]

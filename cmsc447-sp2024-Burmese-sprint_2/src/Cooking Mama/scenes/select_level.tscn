@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://dsar8cmdyvij1"]
 
 [ext_resource type="Script" path="res://scripts/select_level.gd" id="1_mokh8"]
-[ext_resource type="Texture2D" uid="uid://b416ggql7swnt" path="res://assets/menu_bg.png" id="2_vpms1"]
+[ext_resource type="Texture2D" uid="uid://dymwh3y1uf42a" path="res://assets/Shop/menu backg.png" id="2_tym4x"]
 [ext_resource type="FontFile" uid="uid://em0nvwniqxvs" path="res://fonts/Daydream.ttf" id="3_8qc1q"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kxkx6"]
@@ -55,7 +55,7 @@ script = ExtResource("1_mokh8")
 offset_left = -25.0
 offset_right = 1948.0
 offset_bottom = 1079.0
-texture = ExtResource("2_vpms1")
+texture = ExtResource("2_tym4x")
 expand_mode = 1
 
 [node name="Level One" type="Button" parent="."]

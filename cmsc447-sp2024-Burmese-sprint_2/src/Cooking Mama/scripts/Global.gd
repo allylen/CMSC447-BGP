@@ -27,18 +27,6 @@ var popup_text = ""
 
 # Variables to check if tracks are unlocked
 
-var track_one_owned = false
-var track_two_owned = false
-var track_three_owned = false 
-var green_knife_owned = false
-var purple_knife_owned = false
-var pink_knife_owned = false
-var blue_knife_owned = true
-var purple_plate_owned = false
-var blue_plate_owned = false
-var green_plate_owned = false
-var white_plate = true
-
 
 var ownership = {
 	"track_one_owned": false,
@@ -107,6 +95,7 @@ func set_active_knife(knife_name: String):
 	}
 	var headers = PackedStringArray(["Content-Type: application/json"])
 	var json_body = JSON.stringify(body)
+	equipped_items["knife"] = knife_name
 	set_active_req.connect("request_completed", _on_set_active_knife_response)
 	set_active_req.request(url, headers, HTTPClient.METHOD_POST, json_body)
 
@@ -132,6 +121,7 @@ func set_active_plate(plate_name: String):
 	}
 	var headers = PackedStringArray(["Content-Type: application/json"])
 	var json_body = JSON.stringify(body)
+	equipped_items["plate"] = plate_name
 	set_active_req.connect("request_completed", _on_set_active_plate_response)
 	set_active_req.request(url, headers, HTTPClient.METHOD_POST, json_body)
 
@@ -157,13 +147,13 @@ func set_active_track(track_name: String):
 	}
 	var headers = PackedStringArray(["Content-Type: application/json"])
 	var json_body = JSON.stringify(body)
+	equipped_items["track"] = track_name
 	set_active_req.connect("request_completed", _on_set_active_track_response)
 	set_active_req.request(url, headers, HTTPClient.METHOD_POST, json_body)
 
 # Callback for setting active track
 func _on_set_active_track_response(result, response_code, headers, body):
 	set_active_req.disconnect("request_completed", _on_set_active_track_response)
-	
 	if response_code == 200:
 		print("Active track set successfully.")
 	else:
@@ -376,6 +366,9 @@ func _on_ownership_details_received(result, response_code, headers, body):
 		json.parse(body.get_string_from_utf8())
 		var data = json.data
 		print(data)
+		ownership["track_one_owned"] = data["data"]["track_one_owned"]
+		ownership["track_two_owned"] = data["data"]["track_two_owned"]
+		ownership["track_three_owned"] = data["data"]["track_three_owned"]
 		ownership["green_knife_owned"] = data["data"]["green_knife_owned"]
 		ownership["purple_knife_owned"] = data["data"]["purple_knife_owned"]
 		ownership["pink_knife_owned"] = data["data"]["pink_knife_owned"]

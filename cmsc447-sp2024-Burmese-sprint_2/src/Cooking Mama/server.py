@@ -122,7 +122,7 @@ def purchase_music():
         elif is_enabled[0] == 1:
             return {'success': False, 'message': f"{track_name} is already owned."}, 230
 
-        c.execute("UPDATE users SET total_points = total_points - 2 WHERE username = ?", (username,))
+        #c.execute("UPDATE users SET total_points = total_points - 2 WHERE username = ?", (username,))
         c.execute(f"UPDATE {track_name} SET is_enabled = 1 WHERE username = ?", (username,))
         conn.commit()
         return {'success': True, 'message': f"{track_name} purchased successfully."}, 200
@@ -167,7 +167,7 @@ def purchase_knife():
         elif is_owned[0] == 1:
             return {'success': False, 'message': f"{knife_name} is already owned."}, 230
 
-        c.execute("UPDATE users SET total_points = total_points - 10 WHERE username = ?", (username,))
+        #c.execute("UPDATE users SET total_points = total_points - 10 WHERE username = ?", (username,))
         c.execute(f"UPDATE {knife_name} SET is_owned = 1 WHERE username = ?", (username,))
         conn.commit()
         return {'success': True, 'message': f"{knife_name} purchased successfully."}, 200
@@ -193,7 +193,7 @@ def purchase_plate():
         elif is_owned[0] == 1:
             return {'success': False, 'message': f"{plate_name} is already owned."}, 230
 
-        c.execute("UPDATE users SET total_points = total_points - 2 WHERE username = ?", (username,))
+        #c.execute("UPDATE users SET total_points = total_points - 2 WHERE username = ?", (username,))
         c.execute(f"UPDATE {plate_name} SET is_owned = 1 WHERE username = ?", (username,))
         conn.commit()
         return {'success': True, 'message': f"{plate_name} purchased successfully."}, 200
@@ -495,12 +495,17 @@ def get_ownership_details():
             result = c.fetchone()
             response_data[plate + '_owned'] = bool(result[0]) if result else False
 
+        tracks = ['track_one', 'track_two', 'track_three']
+        for track in tracks:
+            c.execute(f"SELECT is_enabled FROM {track} WHERE username = ?", (username,))
+            result = c.fetchone()
+            response_data[track + '_owned'] = bool(result[0]) if result else False
+
         return {'success': True, 'data': response_data}, 200
     except Exception as e:
         return {'success': False, 'error': str(e)}, 500
     finally:
         conn.close()
-
 
 
 @app.route('/send_top_scores', methods=['GET'])

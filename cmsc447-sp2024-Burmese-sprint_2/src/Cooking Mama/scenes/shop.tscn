@@ -1,12 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://cxhynqb2hs87w"]
+[gd_scene load_steps=8 format=3 uid="uid://cxhynqb2hs87w"]
 
 [ext_resource type="Script" path="res://scenes/shop.gd" id="1_2ka7q"]
-[ext_resource type="Texture2D" uid="uid://b416ggql7swnt" path="res://assets/menu_bg.png" id="2_uwi06"]
-[ext_resource type="Texture2D" uid="uid://75ti35k3jwhl" path="res://assets/music_disc_temp_image.png" id="4_6ur6u"]
+[ext_resource type="Texture2D" uid="uid://dymwh3y1uf42a" path="res://assets/Shop/menu backg.png" id="2_vrfh4"]
 [ext_resource type="Texture2D" uid="uid://cspvwmhymqelc" path="res://assets/SHOP.png" id="4_ho77x"]
-[ext_resource type="Texture2D" uid="uid://bcy03ulfbx1qa" path="res://assets/DISC_ONE.png" id="5_ph82f"]
-[ext_resource type="Texture2D" uid="uid://qh8jbhc887sp" path="res://assets/DISC_TWO.png" id="6_sn45n"]
-[ext_resource type="Texture2D" uid="uid://n1j23qnkju2g" path="res://assets/DISC_THREE.png" id="7_6wqc6"]
+[ext_resource type="Texture2D" uid="uid://bemrlqk7um3v1" path="res://assets/Shop/Store Page.png" id="7_qfw3x"]
 [ext_resource type="Texture2D" uid="uid://cq2y1uln787c8" path="res://assets/BACK.png" id="8_m24cp"]
 [ext_resource type="Texture2D" uid="uid://dtwnux3kpic4o" path="res://assets/POINTS.png" id="9_sr5hl"]
 [ext_resource type="Script" path="res://scenes/shop_pts_label.gd" id="10_fxcp3"]
@@ -18,35 +15,8 @@ script = ExtResource("1_2ka7q")
 offset_left = -26.0
 offset_right = 1947.0
 offset_bottom = 1078.0
-texture = ExtResource("2_uwi06")
+texture = ExtResource("2_vrfh4")
 expand_mode = 1
-
-[node name="disc_one" type="TextureButton" parent="."]
-offset_left = 322.0
-offset_top = 325.0
-offset_right = 550.0
-offset_bottom = 542.0
-texture_normal = ExtResource("4_6ur6u")
-ignore_texture_size = true
-stretch_mode = 0
-
-[node name="disc_two" type="TextureButton" parent="."]
-offset_left = 839.0
-offset_top = 330.0
-offset_right = 1067.0
-offset_bottom = 547.0
-texture_normal = ExtResource("4_6ur6u")
-ignore_texture_size = true
-stretch_mode = 0
-
-[node name="disc_three" type="TextureButton" parent="."]
-offset_left = 1362.0
-offset_top = 330.0
-offset_right = 1590.0
-offset_bottom = 547.0
-texture_normal = ExtResource("4_6ur6u")
-ignore_texture_size = true
-stretch_mode = 0
 
 [node name="SHOP" type="TextureRect" parent="."]
 offset_left = 769.0
@@ -55,41 +25,6 @@ offset_right = 1129.0
 offset_bottom = 239.0
 texture = ExtResource("4_ho77x")
 expand_mode = 1
-stretch_mode = 4
-
-[node name="DISC_ONE" type="TextureRect" parent="."]
-offset_left = 221.0
-offset_top = 537.0
-offset_right = 666.0
-offset_bottom = 649.0
-texture = ExtResource("5_ph82f")
-expand_mode = 1
-stretch_mode = 4
-
-[node name="DISC_TWO" type="TextureRect" parent="."]
-offset_left = 734.0
-offset_top = 540.0
-offset_right = 1179.0
-offset_bottom = 652.0
-texture = ExtResource("6_sn45n")
-expand_mode = 1
-stretch_mode = 4
-
-[node name="DISC_THREE" type="TextureRect" parent="."]
-offset_left = 1231.0
-offset_top = 542.0
-offset_right = 1749.0
-offset_bottom = 699.0
-texture = ExtResource("7_6wqc6")
-expand_mode = 1
-stretch_mode = 4
-
-[node name="BACK" type="TextureButton" parent="."]
-offset_top = 969.0
-offset_right = 235.0
-offset_bottom = 1079.0
-texture_normal = ExtResource("8_m24cp")
-ignore_texture_size = true
 stretch_mode = 4
 
 [node name="HTTPRequest" type="HTTPRequest" parent="."]
@@ -112,7 +47,148 @@ theme_override_colors/font_outline_color = Color(0.0313726, 0.0313726, 0.0313726
 theme_override_font_sizes/font_size = 48
 script = ExtResource("10_fxcp3")
 
-[connection signal="pressed" from="disc_one" to="." method="_on_disc_one_pressed"]
-[connection signal="pressed" from="disc_two" to="." method="_on_disc_two_pressed"]
-[connection signal="pressed" from="disc_three" to="." method="_on_disc_three_pressed"]
-[connection signal="pressed" from="BACK" to="." method="_on_texture_button_pressed"]
+[node name="shop" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 304.0
+offset_top = 55.0
+offset_right = 906.0
+offset_bottom = 454.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2.11496, 2.11496)
+texture = ExtResource("7_qfw3x")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Container" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 1942.0
+offset_bottom = 1076.0
+
+[node name="knife" type="BoxContainer" parent="."]
+clip_contents = true
+custom_minimum_size = Vector2(2.08165e-12, 2.08165e-12)
+layout_direction = 1
+offset_left = 586.0
+offset_top = 276.0
+offset_right = 1011.0
+offset_bottom = 516.0
+theme_override_constants/separation = 65
+
+[node name="green_knife" type="Button" parent="knife"]
+modulate = Color(1, 1, 1, 0)
+clip_contents = true
+custom_minimum_size = Vector2(95.96, 2.08165e-12)
+layout_direction = 1
+layout_mode = 2
+
+[node name="purple_knife" type="Button" parent="knife"]
+modulate = Color(1, 1, 1, 0)
+clip_contents = true
+custom_minimum_size = Vector2(100.215, 2.08165e-12)
+layout_direction = 1
+layout_mode = 2
+
+[node name="pink_knife" type="Button" parent="knife"]
+modulate = Color(1, 1, 1, 0)
+clip_contents = true
+custom_minimum_size = Vector2(100.215, 2.08165e-12)
+layout_direction = 1
+layout_mode = 2
+
+[node name="plates" type="BoxContainer" parent="."]
+clip_contents = true
+custom_minimum_size = Vector2(2.08165e-12, 2.08165e-12)
+layout_direction = 1
+offset_left = 636.0
+offset_top = 561.0
+offset_right = 1365.0
+offset_bottom = 735.0
+theme_override_constants/separation = 90
+
+[node name="purple_plate" type="Button" parent="plates"]
+modulate = Color(1, 1, 1, 0)
+clip_contents = true
+custom_minimum_size = Vector2(164.95, 2.08165e-12)
+layout_direction = 1
+layout_mode = 2
+theme_override_constants/icon_max_width = 0
+
+[node name="blue_plate" type="Button" parent="plates"]
+modulate = Color(1, 1, 1, 0)
+clip_contents = true
+custom_minimum_size = Vector2(164.95, 2.08165e-12)
+layout_direction = 1
+layout_mode = 2
+theme_override_constants/icon_max_width = 0
+
+[node name="green_plate" type="Button" parent="plates"]
+modulate = Color(1, 1, 1, 0)
+clip_contents = true
+custom_minimum_size = Vector2(164.95, 2.08165e-12)
+layout_direction = 1
+layout_mode = 2
+theme_override_constants/icon_max_width = 0
+
+[node name="Popup" type="Popup" parent="."]
+mode = 3
+position = Vector2i(590, 325)
+size = Vector2i(705, 445)
+transparent = true
+
+[node name="Label" type="Label" parent="Popup"]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.4
+anchor_right = 0.5
+anchor_bottom = 4.0
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+
+[node name="OkButton" type="Button" parent="Popup"]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -205.195
+offset_top = -136.0
+offset_right = -44.56
+offset_bottom = -52.145
+grow_horizontal = 2
+grow_vertical = 2
+text = "OK"
+
+[node name="CancelButton" type="Button" parent="Popup"]
+anchors_preset = -1
+anchor_left = 0.58
+anchor_top = 0.693
+anchor_right = 0.58
+anchor_bottom = 0.705
+offset_right = 158.0
+offset_bottom = 78.0
+text = "Cancel"
+
+[node name="back" type="TextureButton" parent="."]
+offset_top = 969.0
+offset_right = 235.0
+offset_bottom = 1079.0
+texture_normal = ExtResource("8_m24cp")
+ignore_texture_size = true
+stretch_mode = 4
+
+[connection signal="pressed" from="knife/green_knife" to="." method="_on_green_knife_pressed"]
+[connection signal="pressed" from="knife/purple_knife" to="." method="_on_purple_knife_pressed"]
+[connection signal="pressed" from="knife/pink_knife" to="." method="_on_pink_knife_pressed"]
+[connection signal="pressed" from="plates/purple_plate" to="." method="_on_pink_plate_pressed"]
+[connection signal="pressed" from="plates/purple_plate" to="." method="_on_purple_plate_pressed"]
+[connection signal="pressed" from="plates/blue_plate" to="." method="_on_blue_plate_pressed"]
+[connection signal="pressed" from="plates/green_plate" to="." method="_on_green_plate_pressed"]
+[connection signal="pressed" from="back" to="." method="_on_back_pressed"]

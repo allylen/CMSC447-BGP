@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://cf40xv16dwmqf"]
 
 [ext_resource type="Script" path="res://scripts/create_account.gd" id="1_nfbv3"]
-[ext_resource type="Texture2D" uid="uid://b416ggql7swnt" path="res://assets/menu_bg.png" id="2_ui450"]
+[ext_resource type="Texture2D" uid="uid://dymwh3y1uf42a" path="res://assets/Shop/menu backg.png" id="2_ua6js"]
 [ext_resource type="FontFile" uid="uid://em0nvwniqxvs" path="res://fonts/Daydream.ttf" id="3_6idj2"]
 [ext_resource type="Script" path="res://scenes/HTTPRequest.gd" id="4_158x0"]
 
@@ -39,7 +39,7 @@ script = ExtResource("1_nfbv3")
 offset_left = -25.0
 offset_right = 1947.0
 offset_bottom = 1085.0
-texture = ExtResource("2_ui450")
+texture = ExtResource("2_ua6js")
 expand_mode = 1
 
 [node name="LineEdit" type="LineEdit" parent="."]

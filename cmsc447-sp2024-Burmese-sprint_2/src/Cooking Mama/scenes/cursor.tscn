@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://fny07k3v2nke"]
+
+[ext_resource type="Texture2D" uid="uid://bknwmsii2dqwb" path="res://assets/Shop/temp_cursor.png" id="1_l5ujp"]
+
+[node name="Cursor" type="TextureRect"]
+offset_right = 110.0
+offset_bottom = 98.0
+texture = ExtResource("1_l5ujp")
