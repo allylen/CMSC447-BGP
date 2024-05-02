@@ -23,7 +23,12 @@ signal burgHeld
 signal burgFinish(side1, side2)
 
 func _ready():
-	burg_anim.speed_scale = 1 + (0.5 * (level - 1)) # Speed increases by 0.5 for each level
+	if Global.level == 1:
+		burg_anim.speed_scale = 1 # 10 sec
+	elif Global.level == 2:
+		burg_anim.speed_scale = 1.33333 # 7.5 sec (approx)
+	elif Global.level == 3:
+		burg_anim.speed_scale = 2 # 5 sec
 	rest_nodes = get_tree().get_nodes_in_group("zones")
 	rest_point = rest_nodes[0].global_position
 	rest_nodes[0].select()

@@ -22,8 +22,15 @@ func _ready():
 	gameTimer.wait_time = gameTime
 	gameTimer.start()
 	var newBurger = burger.instantiate()
-	cookTimer.speed_scale = 1 + (0.5 * (level - 1)) # Speed increases by 0.5 for each level
-	cookTimer2.speed_scale = 1 + (0.5 * (level - 1))
+	if level == 1:
+		cookTimer.speed_scale = 1 # 10 sec
+		cookTimer2.speed_scale = 1
+	elif level == 2:
+		cookTimer.speed_scale = 1.33333 # 7.5 sec (approx)
+		cookTimer2.speed_scale = 1.33333
+	elif level == 3:
+		cookTimer.speed_scale = 2 # 5 sec
+		cookTimer2.speed_scale = 2
 	cookArrow.hide() # Make it so the arrow only shows once the burger starts cooking
 	cookTimerBar.hide() # Same with the bar for the timer
 	cookArrow2.hide()
@@ -93,7 +100,8 @@ func _on_burger_flip(): # When the flip key (spacebar) is pressed
 		cookTimer.play("Arrow")
 	
 func _on_burger_finish(side1, side2): # When the burger is moved to the end zone (Finished cooking)
-	var tempScore = int(((5 - abs(5 - side1)) + (5 - abs(5 - side2))) * 10) # Calculate the Score (deviation from 5 sec on each side, *10 for score out of 100)
+	var scoreScale = 10 + (5 * (level - 1))
+	var tempScore = int(((5 - abs(5 - side1)) + (5 - abs(5 - side2))) * scoreScale)
 	curScore += tempScore # Add the current burger's score to the total score
 	num_Burgers_Cooked += 1 # Increment the number of burgers that have been cooked
 	var scoreText = floating_score.instantiate() # Create the floating score text popup
@@ -107,6 +115,9 @@ func _on_burger_finish(side1, side2): # When the burger is moved to the end zone
 
 func _on_game_timer_timeout(): # When the timer reaches 0
 	Global.stage_two_total_points = curScore # set the score for stage two of the level
-	get_tree().change_scene_to_file("res://scenes/select_level.tscn") # Replace this with the assembly scene when added
-	# Note for Yonas - at this point, can send the score and number of burgers to database (And feel free to adjust the multiplier on the score for balancing purposes)
-	
+	if level == 1:
+		get_tree().change_scene_to_file("res://scenes/assemblingLevel1/moveBun.tscn") # If level 1, go to the level 1 version of assembly scene
+	elif level == 2:
+		get_tree().change_scene_to_file("res://scenes/assemblingLevel2/moveBun.tscn") # If level 2, go to the level 2 version of assembly scene
+	elif level == 3:
+		get_tree().change_scene_to_file("res://scenes/assemblingLevel3/moveBun.tscn") # If level 3, go to the level 3 version of assembly scene

@@ -1,0 +1,264 @@
+[gd_scene load_steps=23 format=3 uid="uid://crme53stgbali"]
+
+[ext_resource type="Script" path="res://scenes/assemblingLevel2/playerMoveBun.gd" id="1_tr1y1"]
+[ext_resource type="Texture2D" uid="uid://dbxclb4w2qdwm" path="res://scenes/assemblingLevel3/stack backg.png" id="1_x2ow7"]
+[ext_resource type="Texture2D" uid="uid://orlbxyes0chc" path="res://scenes/assemblingLevel3/bottom bun side.png" id="2_6n1h5"]
+[ext_resource type="Texture2D" uid="uid://cmt2ntmvkbxao" path="res://scenes/assemblingLevel3/burger side.png" id="4_qfqwg"]
+[ext_resource type="Script" path="res://scenes/assemblingLevel2/pattyScript.gd" id="5_eyy50"]
+[ext_resource type="Script" path="res://scenes/assemblingLevel2/pattyNode2.gd" id="5_pxshh"]
+[ext_resource type="Texture2D" uid="uid://cpqgbxyna15fc" path="res://scenes/assemblingLevel3/cheese side.png" id="6_06xch"]
+[ext_resource type="Script" path="res://scenes/assemblingLevel2/pattyNode3.gd" id="6_ntxwm"]
+[ext_resource type="Script" path="res://scenes/assemblingLevel2/pattyNode4.gd" id="7_5tnle"]
+[ext_resource type="Script" path="res://scenes/assemblingLevel2/pattyNode5.gd" id="8_ag5nf"]
+[ext_resource type="Script" path="res://scenes/assemblingLevel2/pattyNode6.gd" id="9_w2asf"]
+[ext_resource type="Script" path="res://scenes/assemblingLevel2/pattyNode7.gd" id="10_f2j01"]
+[ext_resource type="Script" path="res://scenes/assemblingLevel2/pattyNode8.gd" id="11_x1aaq"]
+[ext_resource type="Script" path="res://scenes/assemblingLevel2/pattyNode9.gd" id="12_ib3nu"]
+[ext_resource type="Script" path="res://scenes/assemblingLevel2/pattyNode10.gd" id="13_b46n4"]
+[ext_resource type="Script" path="res://scenes/assemblingLevel2/topBunScript.gd" id="14_sisuc"]
+[ext_resource type="Texture2D" uid="uid://cu4rboe16q10m" path="res://scenes/assemblingLevel3/top bun side.png" id="15_l5lxh"]
+[ext_resource type="Script" path="res://scenes/assemblingLevel2/PointsScript.gd" id="16_nkcur"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_upk7x"]
+size = Vector2(302.25, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_edyfh"]
+size = Vector2(216, 56)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m3gmn"]
+size = Vector2(232, 56)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dtem2"]
+size = Vector2(1920, 58.5)
+
+[node name="Node2D" type="Node2D"]
+position = Vector2(960, -128)
+
+[node name="StackBackg" type="Sprite2D" parent="."]
+position = Vector2(1.5, 670.5)
+scale = Vector2(1.24805, 1.0498)
+texture = ExtResource("1_x2ow7")
+
+[node name="bottomBunNode" type="CharacterBody2D" parent="."]
+position = Vector2(0, -336)
+script = ExtResource("1_tr1y1")
+
+[node name="BottomBunSide" type="Sprite2D" parent="bottomBunNode"]
+position = Vector2(0, 1466)
+scale = Vector2(0.71875, 0.792969)
+texture = ExtResource("2_6n1h5")
+
+[node name="Area2D" type="Area2D" parent="bottomBunNode"]
+position = Vector2(1, 1448)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bottomBunNode/Area2D"]
+position = Vector2(-1, 0)
+shape = SubResource("RectangleShape2D_upk7x")
+
+[node name="pattyNode" type="Area2D" parent="."]
+position = Vector2(0, 80)
+collision_layer = 3
+collision_mask = 4098
+script = ExtResource("5_eyy50")
+
+[node name="BurgerSide" type="Sprite2D" parent="pattyNode"]
+position = Vector2(4, -223)
+scale = Vector2(0.6875, 0.539063)
+texture = ExtResource("4_qfqwg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pattyNode"]
+position = Vector2(0, -227)
+shape = SubResource("RectangleShape2D_edyfh")
+
+[node name="pattyNode2" type="Area2D" parent="."]
+position = Vector2(-320, -875)
+collision_layer = 6
+collision_mask = 4100
+script = ExtResource("5_pxshh")
+
+[node name="CheeseSide" type="Sprite2D" parent="pattyNode2"]
+position = Vector2(1, -385.5)
+scale = Vector2(0.8125, 1.29492)
+texture = ExtResource("6_06xch")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pattyNode2"]
+position = Vector2(0, -425)
+shape = SubResource("RectangleShape2D_m3gmn")
+
+[node name="pattyNode3" type="Area2D" parent="."]
+position = Vector2(592, -1515)
+collision_layer = 12
+collision_mask = 4104
+script = ExtResource("6_ntxwm")
+
+[node name="BurgerSide3" type="Sprite2D" parent="pattyNode3"]
+position = Vector2(0, -392)
+scale = Vector2(0.6875, 0.539063)
+texture = ExtResource("4_qfqwg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pattyNode3"]
+position = Vector2(0, -396.5)
+shape = SubResource("RectangleShape2D_m3gmn")
+
+[node name="pattyNode4" type="Area2D" parent="."]
+position = Vector2(64, -2163)
+collision_layer = 24
+collision_mask = 4112
+script = ExtResource("7_5tnle")
+
+[node name="BurgerSide4" type="Sprite2D" parent="pattyNode4"]
+position = Vector2(0, -389)
+scale = Vector2(0.6875, 0.539063)
+texture = ExtResource("4_qfqwg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pattyNode4"]
+position = Vector2(0, -395)
+shape = SubResource("RectangleShape2D_m3gmn")
+
+[node name="pattyNode5" type="Area2D" parent="."]
+position = Vector2(-488, -2555)
+collision_layer = 48
+collision_mask = 4128
+script = ExtResource("8_ag5nf")
+
+[node name="CheeseSide2" type="Sprite2D" parent="pattyNode5"]
+position = Vector2(-4.99997, -353)
+scale = Vector2(0.8125, 1.29492)
+texture = ExtResource("6_06xch")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pattyNode5"]
+position = Vector2(0, -395)
+shape = SubResource("RectangleShape2D_m3gmn")
+
+[node name="pattyNode6" type="Area2D" parent="."]
+position = Vector2(344, -3115)
+collision_layer = 96
+collision_mask = 4160
+script = ExtResource("9_w2asf")
+
+[node name="BurgerSide6" type="Sprite2D" parent="pattyNode6"]
+position = Vector2(-2, -391)
+scale = Vector2(0.6875, 0.539063)
+texture = ExtResource("4_qfqwg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pattyNode6"]
+position = Vector2(0, -396)
+shape = SubResource("RectangleShape2D_m3gmn")
+
+[node name="pattyNode7" type="Area2D" parent="."]
+position = Vector2(-392, -3747)
+collision_layer = 192
+collision_mask = 4224
+script = ExtResource("10_f2j01")
+
+[node name="BurgerSide7" type="Sprite2D" parent="pattyNode7"]
+position = Vector2(0, -391)
+scale = Vector2(0.6875, 0.539063)
+texture = ExtResource("4_qfqwg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pattyNode7"]
+position = Vector2(0, -396)
+shape = SubResource("RectangleShape2D_m3gmn")
+
+[node name="pattyNode8" type="Area2D" parent="."]
+position = Vector2(464, -4627)
+collision_layer = 384
+collision_mask = 4352
+script = ExtResource("11_x1aaq")
+
+[node name="CheeseSide3" type="Sprite2D" parent="pattyNode8"]
+position = Vector2(-0.999878, -356)
+scale = Vector2(0.810547, 1.29492)
+texture = ExtResource("6_06xch")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pattyNode8"]
+position = Vector2(0, -397)
+shape = SubResource("RectangleShape2D_m3gmn")
+
+[node name="pattyNode9" type="Area2D" parent="."]
+position = Vector2(-104, -5227)
+collision_layer = 768
+collision_mask = 4608
+script = ExtResource("12_ib3nu")
+
+[node name="BurgerSide9" type="Sprite2D" parent="pattyNode9"]
+position = Vector2(2, -390)
+scale = Vector2(0.6875, 0.539063)
+texture = ExtResource("4_qfqwg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pattyNode9"]
+position = Vector2(0, -396)
+shape = SubResource("RectangleShape2D_m3gmn")
+
+[node name="pattyNode10" type="Area2D" parent="."]
+position = Vector2(200, -6003)
+collision_layer = 1536
+collision_mask = 5120
+script = ExtResource("13_b46n4")
+
+[node name="BurgerSide10" type="Sprite2D" parent="pattyNode10"]
+position = Vector2(0, -394)
+scale = Vector2(0.6875, 0.539063)
+texture = ExtResource("4_qfqwg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pattyNode10"]
+position = Vector2(0, -398)
+shape = SubResource("RectangleShape2D_m3gmn")
+
+[node name="topBunNode" type="Area2D" parent="."]
+position = Vector2(-392, -6851)
+collision_layer = 3072
+collision_mask = 2048
+script = ExtResource("14_sisuc")
+
+[node name="TopBunSide" type="Sprite2D" parent="topBunNode"]
+position = Vector2(0, -392.75)
+scale = Vector2(0.625, 0.567383)
+texture = ExtResource("15_l5lxh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="topBunNode"]
+position = Vector2(0, -392)
+shape = SubResource("RectangleShape2D_m3gmn")
+
+[node name="Points" type="Label" parent="."]
+offset_left = 496.0
+offset_top = 168.0
+offset_right = 896.0
+offset_bottom = 301.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+horizontal_alignment = 2
+script = ExtResource("16_nkcur")
+
+[node name="gameOverArea" type="Area2D" parent="."]
+position = Vector2(0, 54)
+collision_layer = 4096
+collision_mask = 4095
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="gameOverArea"]
+position = Vector2(0, 1120)
+shape = SubResource("RectangleShape2D_dtem2")
+
+[connection signal="area_entered" from="bottomBunNode/Area2D" to="pattyNode" method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="bottomBunNode/Area2D" to="pattyNode" method="_on_area_2d_area_exited"]
+[connection signal="area_entered" from="pattyNode" to="pattyNode2" method="_on_patty_node_area_entered"]
+[connection signal="area_entered" from="pattyNode2" to="pattyNode3" method="_on_patty_node_2_area_entered"]
+[connection signal="area_entered" from="pattyNode3" to="pattyNode4" method="_on_patty_node_3_area_entered"]
+[connection signal="area_entered" from="pattyNode4" to="pattyNode5" method="_on_patty_node_4_area_entered"]
+[connection signal="area_entered" from="pattyNode5" to="pattyNode6" method="_on_patty_node_5_area_entered"]
+[connection signal="area_entered" from="pattyNode6" to="pattyNode7" method="_on_patty_node_6_area_entered"]
+[connection signal="area_entered" from="pattyNode7" to="pattyNode8" method="_on_patty_node_7_area_entered"]
+[connection signal="area_entered" from="pattyNode8" to="pattyNode9" method="_on_patty_node_8_area_entered"]
+[connection signal="area_entered" from="pattyNode9" to="pattyNode10" method="_on_patty_node_9_area_entered"]
+[connection signal="area_entered" from="pattyNode10" to="topBunNode" method="_on_patty_node_10_area_entered"]
+[connection signal="area_entered" from="gameOverArea" to="pattyNode" method="_on_game_over_area_area_entered"]
+[connection signal="area_entered" from="gameOverArea" to="pattyNode2" method="_on_game_over_area_area_entered"]
+[connection signal="area_entered" from="gameOverArea" to="pattyNode3" method="_on_game_over_area_area_entered"]
+[connection signal="area_entered" from="gameOverArea" to="pattyNode4" method="_on_game_over_area_area_entered"]
+[connection signal="area_entered" from="gameOverArea" to="pattyNode5" method="_on_game_over_area_area_entered"]
+[connection signal="area_entered" from="gameOverArea" to="pattyNode6" method="_on_game_over_area_area_entered"]
+[connection signal="area_entered" from="gameOverArea" to="pattyNode7" method="_on_game_over_area_area_entered"]
+[connection signal="area_entered" from="gameOverArea" to="pattyNode8" method="_on_game_over_area_area_entered"]
+[connection signal="area_entered" from="gameOverArea" to="pattyNode9" method="_on_game_over_area_area_entered"]
+[connection signal="area_entered" from="gameOverArea" to="pattyNode10" method="_on_game_over_area_area_entered"]
+[connection signal="area_entered" from="gameOverArea" to="topBunNode" method="_on_game_over_area_area_entered"]
