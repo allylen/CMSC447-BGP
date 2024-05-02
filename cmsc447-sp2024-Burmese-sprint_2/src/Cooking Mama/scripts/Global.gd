@@ -17,7 +17,7 @@ var logged_in = false
 var user_name = null
 
 # Current Level Selected by the User
-var level = 1 # do not set to any number less than 1 (for my sanity, pls :3)
+var level = 3 # do not set to any number less than 1 (for my sanity, pls :3)
 var level_but_str = "level_one"
 var stage = 1 # whatever you say pooks ^^
 

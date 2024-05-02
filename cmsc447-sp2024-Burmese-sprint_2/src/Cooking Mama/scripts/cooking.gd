@@ -22,8 +22,15 @@ func _ready():
 	gameTimer.wait_time = gameTime
 	gameTimer.start()
 	var newBurger = burger.instantiate()
-	cookTimer.speed_scale = 1 + (0.5 * (level - 1)) # Speed increases by 0.5 for each level
-	cookTimer2.speed_scale = 1 + (0.5 * (level - 1))
+	if level == 1:
+		cookTimer.speed_scale = 1 # 10 sec
+		cookTimer2.speed_scale = 1
+	elif level == 2:
+		cookTimer.speed_scale = 1.33333 # 7.5 sec (approx)
+		cookTimer2.speed_scale = 1.33333
+	elif level == 3:
+		cookTimer.speed_scale = 2 # 5 sec
+		cookTimer2.speed_scale = 2
 	cookArrow.hide() # Make it so the arrow only shows once the burger starts cooking
 	cookTimerBar.hide() # Same with the bar for the timer
 	cookArrow2.hide()
@@ -93,13 +100,8 @@ func _on_burger_flip(): # When the flip key (spacebar) is pressed
 		cookTimer.play("Arrow")
 	
 func _on_burger_finish(side1, side2): # When the burger is moved to the end zone (Finished cooking)
-	var tempScore = 0
-	if level == 1:
-		tempScore = int(((5 - abs(5 - side1)) + (5 - abs(5 - side2))) * 10)
-	elif level == 2:
-		tempScore = int(((3.75 - abs(3.75 - side1)) + (3.75 - abs(3.75 - side2))) * 20)
-	elif level == 3:
-		tempScore = int(((2.5 - abs(2.5 - side1)) + (2.5 - abs(2.5 - side2))) * 40)
+	var scoreScale = 10 + (5 * (level - 1))
+	var tempScore = int(((5 - abs(5 - side1)) + (5 - abs(5 - side2))) * scoreScale)
 	curScore += tempScore # Add the current burger's score to the total score
 	num_Burgers_Cooked += 1 # Increment the number of burgers that have been cooked
 	var scoreText = floating_score.instantiate() # Create the floating score text popup
