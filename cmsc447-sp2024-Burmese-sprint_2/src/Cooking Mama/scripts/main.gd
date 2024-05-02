@@ -2,7 +2,6 @@ extends Node2D
 
 
 func _ready():
-	AudioPlayer.play_track_one()
 	var create_account_button = get_node_or_null("Create Account")
 	var login_button = get_node_or_null("Login")
 	var play_button = get_node_or_null("Play")
@@ -16,15 +15,6 @@ func _ready():
 			play_button.visible = true
 			shop_button.visible = true
 			Global.fetch_ownership_details()
-			#print(Global.equipped_items)
-			Global.set_total_points(5000)
-			Global.fetch_ownership_details()
-			#Global.purchase_plate("blue_plate")
-			#Global.purchase_knife("pink_knife")
-			#Global.equip_item("blue_knife")
-			#print(Global.equipped_items)
-			#Global.equip_item("pink_knife")
-			#print(Global.equipped_items)
 		else:
 			create_account_button.visible = true
 			login_button.visible = true

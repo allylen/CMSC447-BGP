@@ -1,40 +1,42 @@
 extends AudioStreamPlayer
 
+const TRACK_ONE = preload("res://music/MAIN.ogg")
+const TRACK_TWO = preload("res://music/song_two.ogg")
+const TRACK_THREE = preload("res://music/song_three.ogg")
 
-const track_one = preload("res://music/MAIN.ogg")
 
-
-
-
-func _play_track_one(music: AudioStream, volume = -100.0):
+func play_track(music: AudioStream, volume: float = 0.0):
 	if stream == music:
-		return
-	
+		return  
+
 	stream = music
 	volume_db = volume
 	play()
-	
-func _play_track_two(music: AudioStream, volume = 0.0):
-	pass
 
-func _play_track_three(music: AudioStream, volume = 0.0):
-	pass
-	
-func _stop_music(music: AudioStream, volume = 0.0):
-	volume_db = volume
-	stop()
 
 func stop_music():
-	_stop_music(track_one)
-	
-	
+	stop()
+
+
+func play_equipped_track():
+	var equipped_track_name = Global.equipped_items["track"]
+
+	match equipped_track_name:
+		"track_one":
+			play_track(TRACK_ONE)
+		"track_two":
+			play_track(TRACK_TWO)
+		"track_three":
+			play_track(TRACK_THREE)
+		_:
+			print("No equipped track found or incorrect track name.")
 
 
 func play_track_one():
-	_play_track_one(track_one)
+	play_track(TRACK_ONE)
 
 func play_track_two():
-	pass
+	play_track(TRACK_TWO)
 	
 func play_track_three():
-	pass
+	play_track(TRACK_THREE)
