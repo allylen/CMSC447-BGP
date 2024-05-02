@@ -95,11 +95,11 @@ func _on_burger_flip(): # When the flip key (spacebar) is pressed
 func _on_burger_finish(side1, side2): # When the burger is moved to the end zone (Finished cooking)
 	var tempScore = 0
 	if level == 1:
-		tempScore = int((5 - abs(5 - side1)) + (5 - abs(5 - side2)) * 10)
+		tempScore = int(((5 - abs(5 - side1)) + (5 - abs(5 - side2))) * 10)
 	elif level == 2:
-		tempScore = int((3.75 - abs(3.75 - side1)) + (3.75 - abs(3.75 - side2)) * 20)
+		tempScore = int(((3.75 - abs(3.75 - side1)) + (3.75 - abs(3.75 - side2))) * 20)
 	elif level == 3:
-		tempScore = int((2.5 - abs(2.5 - side1)) + (2.5 - abs(2.5 - side2)) * 40)
+		tempScore = int(((2.5 - abs(2.5 - side1)) + (2.5 - abs(2.5 - side2))) * 40)
 	curScore += tempScore # Add the current burger's score to the total score
 	num_Burgers_Cooked += 1 # Increment the number of burgers that have been cooked
 	var scoreText = floating_score.instantiate() # Create the floating score text popup
