@@ -1,0 +1,142 @@
+[gd_scene load_steps=8 format=3 uid="uid://bbxundhq8rmle"]
+
+[ext_resource type="Script" path="res://scenes/music_shop.gd" id="1_g3mk8"]
+[ext_resource type="Texture2D" uid="uid://ckawa3oi5fjdg" path="res://assets/Shop/Music Shop.png" id="2_3jc8y"]
+[ext_resource type="Texture2D" uid="uid://x11ankw5ek46" path="res://assets/CENTERED BUTTONS/exit but.png" id="3_y0omi"]
+[ext_resource type="PackedScene" uid="uid://1xfl3mpg3j72" path="res://scenes/audio_slider.tscn" id="4_k4xyc"]
+[ext_resource type="Texture2D" uid="uid://dt48cbpxl0ac5" path="res://assets/CENTERED BUTTONS/master.png" id="5_penlc"]
+[ext_resource type="Texture2D" uid="uid://dq17b18wlwlrt" path="res://assets/CENTERED BUTTONS/Volums.png" id="6_y2tl3"]
+[ext_resource type="Texture2D" uid="uid://cq6j65wq7msie" path="res://assets/CENTERED BUTTONS/SFX.png" id="7_7oidp"]
+
+[node name="MusicShop" type="Node2D"]
+script = ExtResource("1_g3mk8")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_direction = 1
+offset_right = 1918.0
+offset_bottom = 1079.0
+size_flags_horizontal = 6
+size_flags_vertical = 6
+texture = ExtResource("2_3jc8y")
+
+[node name="Popup" type="Popup" parent="."]
+mode = 3
+position = Vector2i(590, 325)
+size = Vector2i(705, 445)
+transparent = true
+
+[node name="Label" type="Label" parent="Popup"]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.4
+anchor_right = 0.5
+anchor_bottom = 4.0
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+
+[node name="OkButton" type="Button" parent="Popup"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -205.195
+offset_top = -136.0
+offset_right = -44.56
+offset_bottom = -52.145
+grow_horizontal = 2
+grow_vertical = 2
+text = "OK"
+
+[node name="CancelButton" type="Button" parent="Popup"]
+anchors_preset = -1
+anchor_left = 0.58
+anchor_top = 0.693
+anchor_right = 0.58
+anchor_bottom = 0.705
+offset_right = 158.0
+offset_bottom = 78.0
+text = "Cancel"
+
+[node name="disc_one" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = 806.0
+offset_top = 284.0
+offset_right = 1139.0
+offset_bottom = 565.0
+
+[node name="disc_two" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = 1363.0
+offset_top = 285.0
+offset_right = 1696.0
+offset_bottom = 566.0
+
+[node name="disc_three" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = 1085.0
+offset_top = 527.0
+offset_right = 1418.0
+offset_bottom = 808.0
+
+[node name="TextureButton" type="TextureButton" parent="."]
+offset_left = 1710.0
+offset_top = 273.0
+offset_right = 1792.0
+offset_bottom = 352.0
+scale = Vector2(0.622184, 0.58321)
+texture_normal = ExtResource("3_y0omi")
+ignore_texture_size = true
+stretch_mode = 3
+
+[node name="Sliders" type="BoxContainer" parent="."]
+layout_direction = 1
+offset_left = 1482.0
+offset_top = 890.0
+offset_right = 1882.71
+offset_bottom = 1178.0
+scale = Vector2(0.70718, 0.59099)
+theme_override_constants/separation = 120
+vertical = true
+
+[node name="master" parent="Sliders" instance=ExtResource("4_k4xyc")]
+layout_mode = 2
+bus_name = "Master"
+
+[node name="volume" parent="Sliders" instance=ExtResource("4_k4xyc")]
+layout_mode = 2
+bus_name = "music"
+
+[node name="sfx" parent="Sliders" instance=ExtResource("4_k4xyc")]
+layout_mode = 2
+bus_name = "sfx"
+
+[node name="Text" type="BoxContainer" parent="."]
+layout_direction = 1
+offset_left = 1174.93
+offset_top = 746.235
+offset_right = 1795.93
+offset_bottom = 1532.24
+scale = Vector2(0.712, 0.595)
+theme_override_constants/separation = -375
+vertical = true
+
+[node name="Master" type="TextureRect" parent="Text"]
+layout_mode = 2
+texture = ExtResource("5_penlc")
+
+[node name="Music" type="TextureRect" parent="Text"]
+layout_mode = 2
+texture = ExtResource("6_y2tl3")
+
+[node name="SFX" type="TextureRect" parent="Text"]
+layout_mode = 2
+texture = ExtResource("7_7oidp")
+
+[connection signal="pressed" from="disc_one" to="." method="_on_disc_one_pressed"]
+[connection signal="pressed" from="disc_two" to="." method="_on_disc_two_pressed"]
+[connection signal="pressed" from="disc_three" to="." method="_on_disc_three_pressed"]
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="value_changed" from="Sliders/master" to="." method="_on_master_value_changed"]
