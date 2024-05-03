@@ -6,7 +6,7 @@ func _ready():
 	# Initialize the label text
 	text = ""
 	# update text with points
-	text += "\n Points Gained: " + str(Global.total_points)#  YONAS ADD CURRENT POINTS HERE TO DISPLAY
+	text += "\n Current Points: " + str(Global.total_points)#  YONAS ADD CURRENT POINTS HERE TO DISPLAY
 
 func _on_timer_timeout():
 	queue_free();
